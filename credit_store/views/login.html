@@ -6,135 +6,68 @@
         <%= title %>
     </title>
     <%include header.html%>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/meituan.min.css">
 </head>
 
-<body class="pg-unitive-login theme--www">
-    <header class="header cf">
-        <a class="site-logo" href="http://www.meituan.com">美团网</a>
-    </header>
-    <div class="site-body-wrapper">
-        <div class="site-body cf">
-            <div class="promotion-banner">
-                <img src="//s0.meituan.net/bs/file/?f=fs:fe-sso-fs/build/page/static/banner/www.jpg" width="480" height="370" alt="美团网">
+<body>
+    <div class="container">
+        <header class="row clearfix login-header">
+            <a class="site-logo" href="/"></a>
+        </header>
+        <div class="row clearfix login-content">
+            <div class="col-md-6 column">
+                <img alt="140x140" src="/images/loginhead.jpg" />
             </div>
-            <div class="login-section" data-params="{&quot;service&quot;:&quot;www&quot;,&quot;isDialog&quot;:false }">
-                <form id="J-normal-form" action="/account/unitivelogin?service=www&amp;continue=http%3A%2F%2Fwww.meituan.com%2Faccount%2Fsettoken%3Fcontinue%3Dhttp%253A%252F%252Fzh.meituan.com%252F" method="POST" class="form form--stack">
-                    <div class="validate-info" style="visibility:hidden"></div>
-                    <span class="login-type" data-mtevent="login.mobile.switch">
-            <a id="J-mobile-link" href="/account/unitivelogin?service=www&amp;continue=http%3A%2F%2Fwww.meituan.com%2Faccount%2Fsettoken%3Fcontinue%3Dhttp%253A%252F%252Fzh.meituan.com%252F&amp;mtt=1.index%2Ffloornew.0.0.ilm6elwv&amp;_nsmobilelogin=true">
-                手机动态码登录
-                <i></i>
-            </a>
-            账号登录
-        </span>
-                    <div class="form-field form-field--icon">
-                        <i class="icon icon-user"></i>
-                        <input type="text" id="login-email" class="f-text" name="email" placeholder="手机号/用户名/邮箱" value="">
+            <div class="col-md-6 column">
+                <form class="form-horizontal login-input" role="form">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" />
+                        </div>
                     </div>
-                    <div class="form-field form-field--icon">
-                        <i class="icon icon-password"></i>
-                        <input type="password" id="login-password" class="f-text" name="password" placeholder="密码">
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3" />
+                        </div>
                     </div>
-                    <div class="form-field form-field--captcha" style="display:none">
-                        <input type="text" id="captcha" class="f-text" name="captcha" placeholder="验证码" autocomplete="off">
-                        <img height="36" width="72" class="signup-captcha-img" id="signup-captcha-img" src="https://passport.meituan.com/account/captcha">
-                        <a tabindex="-1" class="captcha-refresh inline-link" href="javascript:void(0)">看不清楚？换一张</a>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" />记住我</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-field form-field--auto-login cf">
-                        <a tabindex="-1" href="/account/retrievepassword?service=www&amp;continue=http%3A%2F%2Fwww.meituan.com%2Faccount%2Fsettoken%3Fcontinue%3Dhttp%253A%252F%252Fzh.meituan.com%252F" target="_top" class="forget-password">忘记密码？</a>
-                        <input type="checkbox" value="1" name="auto_login" id="autologin" class="f-check ui-checkbox">
-                        <label class="normal" for="autologin">7天内自动登录</label>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">登录</button>
+                        </div>
                     </div>
-                    <div class="form-field form-field--ops">
-                        <input type="hidden" name="origin" value="account-login">
-                        <input type="hidden" name="fingerprint" class="J-fingerprint" value="0-0-1-">
-                        <input type="hidden" name="csrf" value="mOt5EDGV-i5FijfcfhOhSEzaGZTms1HvR_Pk">
-                        <input data-mtevent="login.normal.submit" type="submit" class="btn" name="commit" value="登录">
-                    </div>
-                    <p class="signup-guide">还没有账号？<a href="/account/unitivesignup?service=www&amp;continue=http%3A%2F%2Fwww.meituan.com%2Faccount%2Fsettoken%3Fcontinue%3Dhttp%253A%252F%252Fzh.meituan.com%252F" target="_top">免费注册</a></p>
                 </form>
-                <form id="J-mobile-form" action="/account/unitivemobilelogin?service=www&amp;continue=http%3A%2F%2Fwww.meituan.com%2Faccount%2Fsettoken%3Fcontinue%3Dhttp%253A%252F%252Fzh.meituan.com%252F" method="POST" class="form form--stack J-wwwtracker-form" style="display:none">
-                    <div class="validate-info" style="visibility:hidden"></div>
-                    <span class="login-type login-type--normal" data-mtevent="login.normal.switch">
-            <a id="J-normal-link" href="/account/unitivelogin?service=www&amp;continue=http%3A%2F%2Fwww.meituan.com%2Faccount%2Fsettoken%3Fcontinue%3Dhttp%253A%252F%252Fzh.meituan.com%252F&amp;mtt=1.index%2Ffloornew.0.0.ilm6elwv">
-                普通方式登录
-                <i></i>
-            </a>
-            账号登录
-        </span>
-                    <div class="J-info form-field form-field--icon">
-                        <i class="icon icon-phone"></i>
-                        <input type="text" id="login-mobile" class="f-text" name="mobile" value="" placeholder="手机号">
-                    </div>
-                    <div class="form-field form-field--captcha-mobile" style="display:none;">
-                        <i class="icon icon-captcha"></i>
-                        <input type="text" id="login-captcha" class="f-text" name="login-captcha" placeholder="验证码" autocomplete="off">
-                        <img height="34" width="61" class="login-captcha-img" id="login-captcha-img" src="https://passport.meituan.com/account/captcha">
-                        <a tabindex="-1" class="captcha-refresh inline-link" href="javascript:void(0)">看不清楚？换一张</a>
-                    </div>
-                    <div class="form-field form-field--verify-mobile">
-                        <input type="button" class="btn-normal btn-mini" id="J-verify-btn" value="免费获取手机动态码">
-                        <span class="verify-tip" id="J-verify-tip"></span>
-                    </div>
-                    <div class="form-field form-field--icon">
-                        <i class="icon icon-password"></i>
-                        <input type="text" name="code" id="login-verify-code" class="f-text" autocomplete="off" value="" placeholder="动态码">
-                    </div>
-                    <div class="form-field form-field--auto-login cf">
-                        <a tabindex="-1" href="/account/retrievepassword?service=www&amp;continue=http%3A%2F%2Fwww.meituan.com%2Faccount%2Fsettoken%3Fcontinue%3Dhttp%253A%252F%252Fzh.meituan.com%252F" target="_top" class="forget-password">忘记密码？</a>
-                        <input type="checkbox" value="1" name="auto_login" id="mobile-autologin" class="f-check ui-checkbox">
-                        <label class="normal" for="mobile-autologin">7天内自动登录</label>
-                    </div>
-                    <div class="form-field form-field--ops">
-                        <input type="hidden" name="origin" value="account-login">
-                        <input type="hidden" name="fingerprint" class="J-fingerprint" value="0-0-1-">
-                        <input type="hidden" name="csrf" value="mOt5EDGV-i5FijfcfhOhSEzaGZTms1HvR_Pk">
-                        <input data-mtevent="login.mobile.submit" type="submit" class="btn" name="commit" value="登录">
-                    </div>
-                    <p class="J-treaty-block treaty-block" style="display:none">
-                        提示： 未注册美团账号的手机号，登录时将自动注册美团账号，且代表您已同意
-                        <a href="http://www.meituan.com/about/terms" target="_blank">《美团网用户协议》</a>
-                    </p>
-                </form>
-                <div class="oauth-wrapper">
-                    <h3 class="title-wrapper"><span class="title">用合作网站账号登录</span></h3>
-                    <div class="oauth cf">
-                        <a class="oauth__link oauth__link--qq" href="/account/connect/tencent" data-mtevent="{&quot;la&quot;:&quot;oauth/qq&quot;}" target="_blank"></a>
-                        <a class="oauth__link oauth__link--alipay" href="/account/connect/alipay" data-mtevent="{&quot;la&quot;:&quot;oauth/aplipay&quot;}" target="_blank"></a>
-                        <a class="oauth__link oauth__link--weibo" href="/account/connect/sina" data-mtevent="{&quot;la&quot;:&quot;oauth/sina&quot;}" target="_blank"></a>
-                    </div>
-                </div>
             </div>
         </div>
+        <footer class="login-footer clearfix">
+            <div class="site-info-nav cf clearfix">
+                <ul class="nav navbar-nav">
+                    <li><a rel="nofollow" href="/">关于美团</a></li>
+                    <li><a rel="nofollow" href="/">美团承诺</a></li>
+                    <li><a rel="nofollow" href="/">加入我们</a></li>
+                    <li><a rel="nofollow " href="/">商家入驻</a></li>
+                    <li><a rel="nofollow " href="/">帮助中心</a></li>
+                    <li class="last "><a href="/">美团手机版</a></li>
+                </ul>
+            </div>
+            <div class="copyright ">
+                <p>
+                    ©<span>2016</span>
+                    <a href="http://meituan.com/ ">美团网团购</a> meituan.com
+                    <a href="http://www.miibeian.gov.cn/ " target="_blank ">京ICP证070791号</a> 京公网安备11010502025545号
+                    <a href="http://meituan.com/about/rules " target="_blank "> 电子公告服务规则</a>
+                </p>
+            </div>
+        </footer>
     </div>
-    <footer class="footer">
-        <div class="site-info-nav cf">
-            <ul>
-                <li class="first"><a rel="nofollow" href="http://meituan.com/about/">关于美团</a></li>
-                <li><a rel="nofollow" href="http://meituan.com/commitment/">美团承诺</a></li>
-                <li>
-                    <a rel="nofollow" href="http://www.hotjob.cn/wt/meituan/web/index?brandCode=meituan" "=" ">加入我们</a></li>
-            <li><a rel="nofollow " href="http://zhaoshang.meituan.com/ ">商家入驻</a></li>
-            <li><a rel="nofollow " href="http://meituan.com/help/faq ">帮助中心</a></li>
-            <li class="last "><a href="http://meituan.com/mobile ">美团手机版</a></li>
-        </ul>
-        <a class="site-info-nav__commitment " href="http://meituan.com/commitment/ ">
-            <img width="276 " height="24 " src="//s0.meituan.net/www/img/footer-commitment.png " alt="美团保障 ">
-        </a>
-    </div>
-    <div class="copyright ">
-        <p>
-            ©<span>2016</span>
-            <a href="http://meituan.com/ ">美团网团购</a>
-            meituan.com
-            <a href="http://www.miibeian.gov.cn/ " target="_blank ">京ICP证070791号</a>
-            京公网安备11010502025545号<a href="http://meituan.com/about/rules " target="_blank "> 电子公告服务规则</a>
-        </p>
-    </div>
-</footer>
-<script>window.onunload = function(){};</script>
-<span id="csrf" style="display:none">mOt5EDGV-i5FijfcfhOhSEzaGZTms1HvR_Pk</span>
 </body>
 
 </html>
