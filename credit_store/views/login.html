@@ -35,8 +35,11 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" />记住我</label>
+                                    <input type="checkbox" />7天内自动登录
+                                </label>
+                                <a class="login-forget-pwd" href="/">忘记密码？</a>
                             </div>
+                            
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,11 +47,29 @@
                             <button type="submit" class="btn btn-default">登录</button>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <a href="/register">还没帐号？注册一个</a>    
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h4 class="title-wrapper">
+                            <span class="title">用合作的帐号登录</span>
+                        </h4>
+                    </div>
+
+                    <div class="oauth cf">
+                    <a class="oauth__link oauth__link--qq" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/qq&quot;}" target="_blank"></a>
+                    <a class="oauth__link oauth__link--alipay" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/aplipay&quot;}" target="_blank"></a>
+                    <a class="oauth__link oauth__link--weibo" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/sina&quot;}" target="_blank"></a>
+            </div>
+
                 </form>
             </div>
         </div>
-        <footer class="login-footer clearfix">
-            <div class="site-info-nav cf clearfix">
+        <div class="row clearfix login-footer">
+            <!-- <footer > -->
+            <div class="login-site-info-nav">
                 <ul class="nav navbar-nav">
                     <li><a rel="nofollow" href="/">关于美团</a></li>
                     <li><a rel="nofollow" href="/">美团承诺</a></li>
@@ -66,7 +87,9 @@
                     <a href="http://meituan.com/about/rules " target="_blank "> 电子公告服务规则</a>
                 </p>
             </div>
-        </footer>
+        <!-- </footer> -->
+        </div>
+        
     </div>
 </body>
 
