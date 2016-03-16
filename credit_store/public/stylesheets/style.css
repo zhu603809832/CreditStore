@@ -92,3 +92,30 @@ a {
 	background-position:-262px -141px;
 	background-image:url(../images/loginset.png)
 }
+
+.register-label{
+	float: right;
+	position: relative;
+	top: 5px;
+}
+
+.register-login-btn{
+	float: right;
+}
+
+.register-header-panel{
+	float: right;
+}
+
+.register-protocol{
+	position: relative;
+	left: 50px;
+}
+
+.register-content{
+	padding: 50px;
+}
+
+.register-title{
+	padding: 20px;
+}
