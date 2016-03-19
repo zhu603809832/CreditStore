@@ -129,6 +129,11 @@ a {
 	height: 32px;
 }
 
-index-container{
-	
+.index-body{
+	padding: 0px;	
+}
+
+.index-navbar-location{
+	position: relative;
+	left: 400px;
 }
