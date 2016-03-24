@@ -11,6 +11,42 @@ a {
 	zoom:1;
 }
 
+.btn{
+	background-color: #2db3a6;
+	background-size: 100%;
+	background-image: linear-gradient(to bottom,#2ec3b4,#2db3a6);
+
+	display: inline-block;
+	vertical-align: middle;
+	padding: 7px 20px 6px;
+	font-size: 14px;
+	font-weight: 700;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+	letter-spacing: .1em;
+	text-align: center;
+	text-decoration: none;
+	border-width: 0 0 1px;
+	border-style: solid;
+	background-repeat: repeat-x;
+	border-radius: 2px;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	border-color: #008177;
+	color: #fff;
+}
+
+a{
+	color: #2db3a6;
+}
+
+.dropdown-menu > li > a:hover{
+	background: #2db3a6;
+}
+
 .site-logo {
 	margin: 0px;
 	width: 82px;
@@ -131,9 +167,4 @@ a {
 
 .index-body{
 	padding: 0px;	
-}
-
-.index-navbar-location{
-	position: relative;
-	left: 400px;
 }
