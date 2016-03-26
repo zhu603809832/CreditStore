@@ -168,3 +168,16 @@ a{
 .index-body{
 	padding: 0px;	
 }
+
+.index-ul-tip{
+	padding: 20px;
+	font-size: 13pt;
+}
+
+.index-strong{
+	font-size: 13pt;
+}
+
+.index-header-nav{
+	height: 100px;
+}
