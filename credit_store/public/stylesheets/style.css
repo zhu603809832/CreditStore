@@ -1,183 +1,263 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 400 14px/1.5 "Hiragino Sans GB", "WenQuanYi Micro Hei", tahoma, sans-serif;
+    /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+    color: #666;
+    background-color: #fff;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 .cf {
-	zoom:1;
+    zoom: 1;
 }
 
-.btn{
-	background-color: #2db3a6;
-	background-size: 100%;
-	background-image: linear-gradient(to bottom,#2ec3b4,#2db3a6);
-
-	display: inline-block;
-	vertical-align: middle;
-	padding: 7px 20px 6px;
-	font-size: 14px;
-	font-weight: 700;
-	-webkit-font-smoothing: antialiased;
-	line-height: 1.5;
-	letter-spacing: .1em;
-	text-align: center;
-	text-decoration: none;
-	border-width: 0 0 1px;
-	border-style: solid;
-	background-repeat: repeat-x;
-	border-radius: 2px;
-	-moz-user-select: -moz-none;
-	-ms-user-select: none;
-	-webkit-user-select: none;
-	user-select: none;
-	cursor: pointer;
-	border-color: #008177;
-	color: #fff;
+.btn {
+    background-color: #2db3a6;
+    background-size: 100%;
+    background-image: linear-gradient(to bottom, #2ec3b4, #2db3a6);
+    display: inline-block;
+    vertical-align: middle;
+    padding: 7px 20px 6px;
+    font-size: 14px;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    letter-spacing: .1em;
+    text-align: center;
+    text-decoration: none;
+    border-width: 0 0 1px;
+    border-style: solid;
+    background-repeat: repeat-x;
+    border-radius: 2px;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border-color: #008177;
+    color: #fff;
 }
 
-a{
-	color: #2db3a6;
+a {
+    color: #2db3a6;
 }
 
-.dropdown-menu > li > a:hover{
-	background: #2db3a6;
+.dropdown-menu > li > a:hover {
+    background: #2db3a6;
 }
 
 .site-logo {
-	margin: 0px;
-	width: 82px;
-	height: 54px;
-	position: relative;
-	background-position: -258px -45px;
-	background-image: url(/images/loginset.png);
-	background-size: initial;
-	display: inline;
-	float: left;
-	overflow: hidden;
+    margin: 0px;
+    width: 82px;
+    height: 54px;
+    position: relative;
+    background-position: -258px -45px;
+    background-image: url(/images/loginset.png);
+    background-size: initial;
+    display: inline;
+    float: left;
+    overflow: hidden;
 }
 
-.login-header{
-	margin: 20px;
+.login-header {
+    margin: 20px;
 }
 
-.login-content{
-	margin: 20px;	
-}
-
-.login-footer{
-	margin: 20px;
-}
-
-.login-site-info-nav{
-	margin: 20px;
-	height: 32px;
-}
-
-.copyright{
-	margin: 20px;	
-}
-
-.login-input{
-	position: relative;
-	width: 350px;
+.login-content {
+    margin: 20px;
 }
 
 .login-footer {
-	margin: 20px;
+    margin: 20px;
 }
 
-.login-forget-pwd{
-	float: right;
+.login-site-info-nav {
+    margin: 20px;
+    height: 32px;
 }
 
-.title-wrapper
-{
-	position:relative;
-	margin-bottom:30px;
-	border-bottom:1px solid #CCC;
-	width:100%;
-	height:0;
-	overflow:visible;
+.copyright {
+    margin: 20px;
 }
 
-.title
-{
-	position:absolute;
-	top:-10px;
-	left:50%;
-	margin-left:-75px;
-	width:150px;
-	text-align:center;
-	/*font-size:16px;
+.login-input {
+    position: relative;
+    width: 350px;
+}
+
+.login-footer {
+    margin: 20px;
+}
+
+.login-forget-pwd {
+    float: right;
+}
+
+.title-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #CCC;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+}
+
+.title {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -75px;
+    width: 150px;
+    text-align: center;
+    /*font-size:16px;
 	font-weight:500;*/
-	color:#666;
-	background:#FFF
+    color: #666;
+    background: #FFF
 }
 
-.oauth__link{
-	position: relative;
-	left: 100px;
-	float:left;
-	margin-right:20px;
-	width:18px;
-	height:18px;
-	background-position:-262px -141px;
-	background-image:url(../images/loginset.png)
+.oauth__link {
+    position: relative;
+    left: 100px;
+    float: left;
+    margin-right: 20px;
+    width: 18px;
+    height: 18px;
+    background-position: -262px -141px;
+    background-image: url(../images/loginset.png)
 }
 
-.register-label{
-	float: right;
-	position: relative;
-	top: 5px;
+.register-label {
+    float: right;
+    position: relative;
+    top: 5px;
 }
 
-.register-login-btn{
-	float: right;
+.register-login-btn {
+    float: right;
 }
 
-.register-header-panel{
-	float: right;
+.register-header-panel {
+    float: right;
 }
 
-.register-protocol{
-	position: relative;
-	left: 50px;
+.register-protocol {
+    position: relative;
+    left: 50px;
 }
 
-.register-content{
-	padding: 50px;
+.register-content {
+    padding: 50px;
 }
 
-.register-title{
-	padding: 20px;
+.register-title {
+    padding: 20px;
 }
 
-.index-header{
-	margin: 20px;
+.index-header {
+    margin: 20px;
 }
 
-.index-site-info-nav{
-	margin: 20px;
-	height: 32px;
+.index-site-info-nav {
+    margin: 20px;
+    height: 32px;
 }
 
-.index-body{
-	padding: 0px;	
+.index-body {
+    padding: 0px;
 }
 
-.index-ul-tip{
-	padding: 20px;
-	font-size: 13pt;
+.index-ul-tip {
+    padding: 20px;
+    font-size: 13pt;
 }
 
-.index-strong{
-	font-size: 13pt;
+.index-strong {
+    font-size: 13pt;
 }
 
-.index-header-nav{
-	height: 100px;
+.index-header-nav {
+    height: 100px;
+    text-align: justify;
+    vertical-align: middle;
+}
+
+.header-container-2 {
+    position: absolute;
+    top: 25%;
+}
+
+.header-container-3 {
+    position: absolute;
+    top: 25%;
+}
+
+.commitment-item {
+    float: left;
+    display: block;
+    margin-left: 20px;
+    height: 42px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    *display: none
+}
+
+.commitment-item i {
+    display: block;
+    font-size: 24px;
+    line-height: 1;
+    color: #2bb8aa
+}
+
+.search-box__form {
+    *display: inline;
+    width: 350px;
+    height: 42px;
+    left: -40px;
+    position: relative;
+}
+
+.search-suggest {
+    position: absolute;
+    top: 43px;
+    left: 64px;
+    width: 412px;
+    margin-top: -1px;
+    border: 1px solid #ddd;
+    border-top: none;
+    overflow: hidden;
+    z-index: 51;
+    font-size: 12px;
+    background: #fff;
+}
+
+.search-box__input {
+    width: 240px;
+    padding: 5px;
+    height: 42px;
+    line-height: 21px;
+    float:left;
+    border-style: solid;
+    border-color: #2bb8aa;
+}
+
+.search-box__button {
+    float: left;
+    width: 65px;
+    margin: 0;
+    height: 42px;
+    line-height: 42px;
+    border: none;
+    color: #fff;
+    background: #2bb8aa;
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 0
+}
+
+.search-box__button:hover {
+    background: #00c3b0;
 }
