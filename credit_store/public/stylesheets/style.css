@@ -300,40 +300,141 @@ li {
     list-style: none;
 }
 
-.navbar__item .nav-label {
-    vertical-align: text-bottom;
-    -webkit-font-smoothing: antialiased;
+.col-nav {
+    padding: 0px;
 }
 
-.cate-nav {
-    top: 40px;
-    width: 244px;
-    height: 468px;
-    border: 1px solid #eee;
-    border-top: none;
-    overflow: visible;
-    background: #fafafa;
-    line-height: 22px;
+.col-nav-container {
+    height: 385px;
+}
+
+.nav-bar-content-height-adjust {
+    height: 375px;
+}
+
+.site-info-w {
+    padding-bottom: 30px;
+    _height: 100px;
+    background: #f9f9f9;
+    clear: both
+}
+
+.site-outer {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.copyright,
+.copyright a {
+    color: #999
+}
+
+.copyright {
+    padding-top: 28px;
+    clear: both;
+    text-align: center;
     font-size: 12px;
-    z-index: 1;
+    font-family: initial;
+    line-height: 12px
 }
 
-.cate-nav,
-.cate-nav__item,
-.nav-level2 {
-    -webkit-backface-visibility: hidden;
+.cert {
+    margin: 30px auto;
+    text-align: center
 }
 
-.cateNavNew {
-    border-right: none;
-    width: 245px;
+.cert__item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    margin: 0;
+    height: 38px
 }
 
-.cateNavNew .cate-nav__item {
-border-right: 1px solid #eee;
+.cert__item a {
+    display: block;
+    outline: 0;
+    height: 38px;
+    margin: 0
 }
 
-.cateNavNew:hover {
-    border-left: 1px solid #bdbdc7;
-    border-bottom: 1px solid #bdbdc7;
+.footer {
+    margin: 0 auto 30px;
+    _height: 100px;
+    clear: both;
+    width: 980px;
+    font-size: 12px;
+    color: #999
+}
+
+.footer .site-info-nav {
+    margin-bottom: 20px;
+    padding: 12px 0;
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE
+}
+
+.footer .site-info-nav ul {
+    float: left;
+    width: 594px;
+    color: #EEE
+}
+
+.footer .copyright a,
+.footer .site-info-nav li a {
+    color: #999
+}
+
+.footer .site-info-nav li {
+    float: left;
+    margin: 5px 0;
+    padding: 0 10px;
+    line-height: 14px;
+    border-right: 1px solid #EEE
+}
+
+.footer .site-info-nav .first {
+    padding-left: 0
+}
+
+.footer .site-info-nav .last {
+    border-right: none
+}
+
+.footer .site-info-nav__commitment img {
+    vertical-align: top
+}
+
+.footer .copyright {
+    text-align: left;
+    clear: both;
+    font-size: 12px;
+    font-family: initial
+}
+
+.site-info {
+    border-top: 3px double #EEE;
+    margin: 0 auto;
+    font-size: 12px;
+    clear: both;
+    width: 972px;
+}
+
+.site-info__item {
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 35px;
+    width: 18.5%;
+    height: 160px;
+}
+
+.site-info__item--service {
+    width: 26%;
+    font-family: "Hiragino Sans GB", " Microsoft YaHei", "WenQuanYi Micro Hei", arial, sans-serif;
+    color: #666;
+}
+
+.site-info__item  ul{
+    -webkit-padding-start: 20px;
 }

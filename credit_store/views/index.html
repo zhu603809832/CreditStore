@@ -119,22 +119,15 @@
             </div>
         </div>
         <div class="row clearfix">
-            <div class="col-md-2 column">
-                <div class="cate-nav cateNavNew"><!-- all -->
-                    <div class="cate-nav__item">
-                        <dl>
-                            <dt>
-                                <a href="#" hidefocus="true">美食</a>
-                            </dt>
-                            <dd>自助餐</dd>
-                            <dd>代金券</dd>
-                        </dl>
-                    </div>
-                    <!-- <div>]</div> for show-->
-                </div>
-                <!-- <ul class="nav nav-tabs nav-stacked">
-                    <li class="active">
-                        <a href="#">美食</a>
+            <div class="col-md-2 column col-nav col-nav-container">
+                <ul class="nav nav-tabs nav-stacked nav-bar-content-height-adjust">
+                    <li>
+                        <a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="美食" data-content="粤菜">美食</a>
+                        <script>
+                        $(function() {
+                            $("[data-toggle='popover']").popover();
+                        });
+                        </script>
                     </li>
                     <li>
                         <a href="#">酒店/客栈</a>
@@ -154,6 +147,9 @@
                     <li>
                         <a href="#">KTV</a>
                     </li>
+                    <li>
+                        <a href="#">购物</a>
+                    </li>
                     <li class="dropdown pull-right">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">更多<strong class="caret"></strong></a>
                         <ul class="dropdown-menu">
@@ -165,9 +161,9 @@
                             </li>
                         </ul>
                     </li>
-                </ul> -->
+                </ul>
             </div>
-            <div class="col-md-6 column">
+            <div class="col-md-6 column col-nav col-nav-container">
                 <div class="carousel slide" id="carousel-810647">
                     <ol class="carousel-indicators">
                         <li data-slide-to="0" data-target="#carousel-810647">
@@ -214,7 +210,7 @@
                     </div> <a class="left carousel-control" href="#carousel-810647" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-810647" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
-            <div class="col-md-4 column">
+            <div class="col-md-4 column col-nav-container">
                 <h1>
                 吃货有福
             </h1>
@@ -373,6 +369,76 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row clearfix">
+            <footer class="site-info-w J-br" style="min-height:350px;" >
+                <div class="site-outer" >
+                    <div class="site-info">
+                        <div class="site-info__item">
+                            <h3 >获取更新</h3>
+                            <ul>
+                                <li><a rel="nofollow" href="http://www.meituan.com/maillist/subscribe">邮件订阅</a></li>
+                                <li><a href="http://www.meituan.com/mobile/">iPhone/Android</a></li>
+                                <li><a rel="nofollow" href="http://user.qzone.qq.com/97231705" target="_blank">美团QQ空间</a></li>
+                                <li><a rel="nofollow" href="http://t.sina.com.cn/meituanzh" target="_blank">美团新浪微博</a></li>
+                                <li><a href="http://www.meituan.com/sitemap/citysitemap.php" target="_blank">sitemap</a></li>
+                            </ul>
+                        </div>
+                        <div class="site-info__item" >
+                            <h3 >商务合作</h3>
+                            <ul>
+                                <li><a rel="nofollow" href="http://pmc.e.meituan.com/public/register/choose" gaevent="footer/seller">商家合作</a></li>
+                                <li><a rel="nofollow" href="http://zhaoshang.meituan.com/" gaevent="footer/mmp">美团商家营销平台</a></li>
+                                <li><a rel="nofollow" href="http://www.meituan.com/about#contact">市场合作</a></li>
+                                <li><a rel="nofollow" href="http://union.meituan.com/" target="_blank">美团联盟</a></li>
+                                <li><a rel="nofollow" target="_blank" href="http://mos.meituan.com">美团云</a></li>
+                            </ul>
+                        </div>
+                        <div class="site-info__item" >
+                            <h3 >公司信息</h3>
+                            <ul>
+                                <li><a rel="nofollow" href="http://www.meituan.com/about/">关于美团</a></li>
+                                <li><a rel="nofollow" href="http://zhaopin.meituan.com" gaevent="footer/job">加入我们</a></li>
+                                <li><a rel="nofollow" href="http://www.meituan.com/about/law">法律声明</a></li>
+                                <li><a rel="nofollow" href="http://www.meituan.com/about/terms">用户协议</a></li>
+                                <li><a href="http://www.meituan.com/about/license">营业执照</a></li>
+                            </ul>
+                        </div>
+                        <div class="site-info__item" >
+                            <h3>用户帮助</h3>
+                            <ul>
+                                <li><a rel="nofollow" class="J-selfservice-tab" data-tab="0" href="http://www.meituan.com/help/selfservice">申请退款</a></li>
+                                <li><a rel="nofollow" class="J-selfservice-tab" data-tab="2" href="http://www.meituan.com/help/selfservice?tab=2">查看美团券密码</a></li>
+                                <li><a rel="nofollow" href="http://www.meituan.com/help/faq">常见问题</a></li>
+                                <li><a rel="nofollow" href="http://www.meituan.com/help/api">开放API</a></li>
+                                <li><a rel="nofollow" href="http://www.meituan.com/about/anticheat">反诈骗公告</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="site-info__item" >
+                            <h3>客服电话</h3>
+                            <ul>
+                                <li><span class="contact-numbers">400-660-5335</span></li>
+                                <li><span class="contact-time">(9:00-23:00)</span></li>
+                                <li><p class="desc">退退换货、查看美团券</p></li>
+                                <li><p><a href="http://www.meituan.com/help/selfservice" class="selfservice-link" gaevent="footer/selfservice">参考教程，轻松搞定!</a></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>©<span title="I:1; Q:2; S:2; C:16; F:2; T:449.96; H:com">2016</span><a href="http://www.meituan.com/">美团网团购</a> meituan.com <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证070791号</a> 京公网安备11010502025545号<a href="http://www.meituan.com/about/rules" target="_blank"> 电子公告服务规则</a></p>
+                </div>
+                <ul class="cert cf">
+                    <li class="cert__item"><a class="sp-ft sp-ft--record" title="备案信息" href="http://www.meituan.com/about/openinfo" hidefocus="true" target="_blank">备案信息</a></li>
+                    <li class="cert__item"><a class="sp-ft sp-ft--alipay" rel="nofollow" title="支付宝特约商家" href="javascript:;">支付宝特约商家</a></li>
+                    <li class="cert__item"><a class="sp-ft sp-ft--tenpay" rel="nofollow" href="http://union.tenpay.com/cgi-bin/trust_mch/ShowTrustMchInfo.cgi?uin=1209236701&amp;uin_type=1" title="财付通诚信商家" hidefocus="true" target="_blank">财付通诚信商家</a></li>
+                    <li class="cert__item"><a class="sp-ft sp-ft--knet" href="javascript:;" title="可信网站认证" rel="nofollow">可信网站</a></li>
+                    <li class="cert__item"><a class="sp-ft sp-ft--12315" href="javascript:;" title="12315消费争议" rel="nofollow">12315消费争议</a></li>
+                </ul>
+                <textarea style="display:none;" class="br-rendered" data-br-beforerender="e.target.one('a').remove(true);"> &lt;div class="site-outer"&gt; &lt;div class="site-info"&gt; &lt;div class="site-info__item"&gt; &lt;h3&gt;获取更新&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/maillist/subscribe"&gt;邮件订阅&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="http://www.meituan.com/mobile/"&gt;iPhone/Android&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://user.qzone.qq.com/97231705" target="_blank"&gt;美团QQ空间&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://t.sina.com.cn/meituanzh" target="_blank"&gt;美团新浪微博&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="http://www.meituan.com/sitemap/citysitemap.php" target="_blank"&gt;sitemap&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="/feed/zhuhai" target="_blank"&gt;RSS订阅&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;div class="site-info__item"&gt; &lt;h3&gt;商务合作&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://pmc.e.meituan.com/public/register/choose" gaevent="footer/seller"&gt;商家合作&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://zhaoshang.meituan.com/" gaevent="footer/mmp"&gt;美团商家营销平台&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/about#contact"&gt;市场合作&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://union.meituan.com/" target="_blank"&gt;美团联盟&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" target="_blank" href="http://mos.meituan.com"&gt;美团云&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" target="_blank" href="mailto:lianzheng@meituan.com"&gt;廉正邮箱&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;div class="site-info__item"&gt; &lt;h3&gt;公司信息&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/about/"&gt;关于美团&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/commitment/"&gt;美团承诺&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/about/press"&gt;媒体报道&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://zhaopin.meituan.com" gaevent="footer/job"&gt;加入我们&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/about/law"&gt;法律声明&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/about/terms"&gt;用户协议&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href="http://www.meituan.com/about/license"&gt;营业执照&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;div class="site-info__item"&gt; &lt;h3&gt;用户帮助&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;&lt;a rel="nofollow" class="J-selfservice-tab" data-tab="0" href="http://www.meituan.com/help/selfservice"&gt;申请退款&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" class="J-selfservice-tab" data-tab="2" href="http://www.meituan.com/help/selfservice?tab=2"&gt;查看美团券密码&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/help/faq"&gt;常见问题&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/help/api"&gt;开放API&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a rel="nofollow" href="http://www.meituan.com/about/anticheat"&gt;反诈骗公告&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; &lt;div class="site-info__item site-info__item--service"&gt; &lt;div class="site-info-service-content"&gt; &lt;i class="hotline"&gt;&lt;/i&gt; &lt;p class="contact-name"&gt;客服电话&lt;/p&gt; &lt;p class="contact-info"&gt; &lt;span class="contact-numbers"&gt;400-660-5335&lt;/span&gt; &lt;span class="contact-time"&gt;(9:00-23:00)&lt;/span&gt; &lt;/p&gt; &lt;p class="desc"&gt;退款、退换货、查看美团券&lt;/p&gt; &lt;p&gt;&lt;a href="http://www.meituan.com/help/selfservice" class="selfservice-link" gaevent="footer/selfservice"&gt;参考教程，轻松搞定!&lt;/a&gt;&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class="clear"&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div class="copyright"&gt; &lt;p&gt;&amp;copy;&lt;span title="I:1; Q:2; S:2; C:16; F:2; T:449.96; H:com"&gt;2016&lt;/span&gt;&lt;a href="http://www.meituan.com/"&gt;美团网团购&lt;/a&gt; meituan.com &lt;a href="http://www.miibeian.gov.cn/" target="_blank"&gt;京ICP证070791号&lt;/a&gt; 京公网安备11010502025545号&lt;a href="http://www.meituan.com/about/rules" target="_blank"&gt; 电子公告服务规则&lt;/a&gt;&lt;/p&gt; &lt;/div&gt; &lt;ul class="cert cf"&gt; &lt;li class="cert__item"&gt;&lt;a class="sp-ft sp-ft--record" title="备案信息" href="http://www.meituan.com/about/openinfo" hidefocus="true" target="_blank"&gt;备案信息&lt;/a&gt;&lt;/li&gt; &lt;li class="cert__item"&gt;&lt;a class="sp-ft sp-ft--alipay" rel="nofollow" title="支付宝特约商家" href="javascript:;"&gt;支付宝特约商家&lt;/a&gt;&lt;/li&gt; &lt;li class="cert__item"&gt;&lt;a class="sp-ft sp-ft--tenpay" rel="nofollow" href="http://union.tenpay.com/cgi-bin/trust_mch/ShowTrustMchInfo.cgi?uin=1209236701&amp;uin_type=1" title="财付通诚信商家" hidefocus="true" target="_blank" &gt;财付通诚信商家&lt;/a&gt;&lt;/li&gt; &lt;li class="cert__item"&gt;&lt;a class="sp-ft sp-ft--knet" href="javascript:;" title="可信网站认证" rel="nofollow"&gt;可信网站&lt;/a&gt;&lt;/li&gt; &lt;li class="cert__item"&gt;&lt;a class="sp-ft sp-ft--12315" href="javascript:;" title="12315消费争议" rel="nofollow"&gt;12315消费争议&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;
+                </textarea>
+            </footer>
         </div>
 </body>
 
