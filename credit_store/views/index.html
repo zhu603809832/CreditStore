@@ -98,7 +98,7 @@
         <div class="row clearfix">
             <div class="site-mast__site-nav-inner">
                 <nav>
-                    <ul class="head-content-navbar cf" data-mod="lz" data-mod-deepview="1" id="yui_3_16_0_1_1459602732384_1384">
+                    <ul class="head-content-navbar cf" data-mod="lz" data-mod-deepview="1">
                         <li class="navbar__item-w ">
                             <a class="navbar__item" href="#" gaevent="nav/today" hidefocus="true"><span class="nav-label">首页</span></a>
                         </li>
@@ -122,21 +122,116 @@
             <div class="col-md-2 column col-nav col-nav-container">
                 <ul class="nav nav-tabs nav-stacked nav-bar-content-height-adjust">
                     <li>
-                        <a href="#" data-container="body" data-toggle="popover" data-placement="right" data-title="美食" data-content="粤菜">美食</a>
-                        <script>
+                        <a href="#" rel="meishi">美食</a>
+                        <script type="text/javascript">
                         $(function() {
-                            $("[data-toggle='popover']").popover();
+                            $("[rel=meishi]").popover({
+                                trigger: 'manual',
+                                placement: 'right',
+                                title: '<div style="text-align:center;font-size:14px;">美食</div>',
+                                html: 'true', //needed to show html of course
+                                content: '<div style="width:150px"><a href="#">西餐</a><br><a href="#">自助餐</a><br><a href="#">甜点饮品</a><br><a href="#">东北菜</a><br><a href="#">粤菜</a><br><a href="#">日韩料理</a></div>',
+                                animation: false
+                            }).on("mouseenter", function() {
+                                var _this = this;
+                                $(this).popover("show");
+                                $(this).siblings(".popover").on("mouseleave", function() {
+                                    $(_this).popover('hide');
+                                });
+                            }).on("mouseleave", function() {
+                                var _this = this;
+                                setTimeout(function() {
+                                    if (!$(".popover:hover").length) {
+                                        $(_this).popover("hide")
+                                    }
+                                }, 100);
+                            });
                         });
                         </script>
                     </li>
                     <li>
-                        <a href="#">酒店/客栈</a>
+                        <a href="#" rel="jiudian">酒店/客栈</a>
+                        <script type="text/javascript">
+                        $(function() {
+                            $("[rel=jiudian]").popover({
+                                trigger: 'manual',
+                                placement: 'right',
+                                title: '<div style="text-align:center;font-size:14px;">酒店/客栈</div>',
+                                html: 'true', //needed to show html of course
+                                content: '<div style="width:150px"><a href="#">经济型酒店</a><br><a href="#">豪华型酒店</a><br><a href="#">主题酒店</a><br><a href="#">青年旅社</a><br><a href="#">公寓型酒店</a><br><a href="#">客栈</a></div>',
+                                animation: false
+                            }).on("mouseenter", function() {
+                                var _this = this;
+                                $(this).popover("show");
+                                $(this).siblings(".popover").on("mouseleave", function() {
+                                    $(_this).popover('hide');
+                                });
+                            }).on("mouseleave", function() {
+                                var _this = this;
+                                setTimeout(function() {
+                                    if (!$(".popover:hover").length) {
+                                        $(_this).popover("hide")
+                                    }
+                                }, 100);
+                            });
+                        });
+                        </script>
                     </li>
                     <li>
-                        <a href="#">电影</a>
+                        <a href="#" rel="dianying">电影</a>
+                        <script type="text/javascript">
+                        $(function() {
+                            $("[rel=dianying]").popover({
+                                trigger: 'manual',
+                                placement: 'right',
+                                title: '<div style="text-align:center;font-size:14px;">电影</div>',
+                                html: 'true', //needed to show html of course
+                                content: '<div style="width:150px"><a href="#">疯狂动物城</a><br><a href="#">蝙蝠侠大战超人</a><br><a href="#">我的特工爷爷</a><br><a href="#">荒野猎人</a><br><a href="#">火锅英雄</a><br><a href="#">睡在我上铺的兄弟</a></div>',
+                                animation: false
+                            }).on("mouseenter", function() {
+                                var _this = this;
+                                $(this).popover("show");
+                                $(this).siblings(".popover").on("mouseleave", function() {
+                                    $(_this).popover('hide');
+                                });
+                            }).on("mouseleave", function() {
+                                var _this = this;
+                                setTimeout(function() {
+                                    if (!$(".popover:hover").length) {
+                                        $(_this).popover("hide")
+                                    }
+                                }, 100);
+                            });
+                        });
+                        </script>
                     </li>
                     <li>
-                        <a href="#">休闲娱乐</a>
+                        <a href="#" rel="xiuxianyule">休闲娱乐</a>
+                        <script type="text/javascript">
+                        $(function() {
+                            $("[rel=xiuxianyule]").popover({
+                                trigger: 'manual',
+                                placement: 'right',
+                                title: '<div style="text-align:center;font-size:14px;">休闲娱乐</div>',
+                                html: 'true', //needed to show html of course
+                                content: '<div style="width:150px"><a href="#">演出赛事</a><br><a href="#">KTV</a><br><a href="#">运动健身</a><br><a href="#">足疗按摩</a><br><a href="#">温泉</a><br><a href="#">真人CS</a></div>',
+                                animation: false
+                            }).on("mouseenter", function() {
+                                var _this = this;
+                                $(this).popover("show");
+                                $(this).siblings(".popover").on("mouseleave", function() {
+                                    $(_this).popover('hide');
+                                });
+                            }).on("mouseleave", function() {
+                                var _this = this;
+                                setTimeout(function() {
+                                    if (!$(".popover:hover").length) {
+                                        $(_this).popover("hide")
+                                    }
+                                }, 100);
+                            });
+                        });
+                        </script>
                     </li>
                     <li>
                         <a href="#">周边游</a>
@@ -213,7 +308,7 @@
             <div class="col-md-4 column col-nav-container">
                 <h1>
                 吃货有福
-            </h1>
+                </h1>
                 </br>
                 <strong class="index-strong">
                 每日上新，吃喝玩乐最低价！！
@@ -371,57 +466,56 @@
             </div>
         </div>
         <div class="row clearfix">
-            <footer class="site-info-w J-br" style="min-height:350px;" >
-                <div class="site-outer" >
+            <footer class="site-info-w J-br" style="min-height:350px;">
+                <div class="site-outer">
                     <div class="site-info">
                         <div class="site-info__item">
-                            <h3 >获取更新</h3>
+                            <h3>获取更新</h3>
                             <ul>
-                                <li><a rel="nofollow" href="http://www.meituan.com/maillist/subscribe">邮件订阅</a></li>
-                                <li><a href="http://www.meituan.com/mobile/">iPhone/Android</a></li>
-                                <li><a rel="nofollow" href="http://user.qzone.qq.com/97231705" target="_blank">美团QQ空间</a></li>
-                                <li><a rel="nofollow" href="http://t.sina.com.cn/meituanzh" target="_blank">美团新浪微博</a></li>
-                                <li><a href="http://www.meituan.com/sitemap/citysitemap.php" target="_blank">sitemap</a></li>
+                                <li><a rel="nofollow" href="">邮件订阅</a></li>
+                                <li><a href="">iPhone/Android</a></li>
+                                <li><a rel="nofollow" href="" target="_blank">美团QQ空间</a></li>
+                                <li><a rel="nofollow" href="" target="_blank">美团新浪微博</a></li>
                             </ul>
                         </div>
-                        <div class="site-info__item" >
-                            <h3 >商务合作</h3>
+                        <div class="site-info__item">
+                            <h3>商务合作</h3>
                             <ul>
-                                <li><a rel="nofollow" href="http://pmc.e.meituan.com/public/register/choose" gaevent="footer/seller">商家合作</a></li>
-                                <li><a rel="nofollow" href="http://zhaoshang.meituan.com/" gaevent="footer/mmp">美团商家营销平台</a></li>
-                                <li><a rel="nofollow" href="http://www.meituan.com/about#contact">市场合作</a></li>
-                                <li><a rel="nofollow" href="http://union.meituan.com/" target="_blank">美团联盟</a></li>
-                                <li><a rel="nofollow" target="_blank" href="http://mos.meituan.com">美团云</a></li>
+                                <li><a rel="nofollow" href="" gaevent="footer/seller">商家合作</a></li>
+                                <li><a rel="nofollow" href="" gaevent="footer/mmp">美团商家营销平台</a></li>
+                                <li><a rel="nofollow" href="">市场合作</a></li>
+                                <li><a rel="nofollow" href="" target="_blank">美团联盟</a></li>
+                                <li><a rel="nofollow" target="_blank" href="">美团云</a></li>
                             </ul>
                         </div>
-                        <div class="site-info__item" >
-                            <h3 >公司信息</h3>
+                        <div class="site-info__item">
+                            <h3>公司信息</h3>
                             <ul>
-                                <li><a rel="nofollow" href="http://www.meituan.com/about/">关于美团</a></li>
-                                <li><a rel="nofollow" href="http://zhaopin.meituan.com" gaevent="footer/job">加入我们</a></li>
-                                <li><a rel="nofollow" href="http://www.meituan.com/about/law">法律声明</a></li>
-                                <li><a rel="nofollow" href="http://www.meituan.com/about/terms">用户协议</a></li>
-                                <li><a href="http://www.meituan.com/about/license">营业执照</a></li>
+                                <li><a rel="nofollow" href="">关于美团</a></li>
+                                <li><a rel="nofollow" href="" gaevent="footer/job">加入我们</a></li>
+                                <li><a rel="nofollow" href="">法律声明</a></li>
+                                <li><a rel="nofollow" href="">用户协议</a></li>
+                                <li><a href="">营业执照</a></li>
                             </ul>
                         </div>
-                        <div class="site-info__item" >
+                        <div class="site-info__item">
                             <h3>用户帮助</h3>
                             <ul>
-                                <li><a rel="nofollow" class="J-selfservice-tab" data-tab="0" href="http://www.meituan.com/help/selfservice">申请退款</a></li>
-                                <li><a rel="nofollow" class="J-selfservice-tab" data-tab="2" href="http://www.meituan.com/help/selfservice?tab=2">查看美团券密码</a></li>
-                                <li><a rel="nofollow" href="http://www.meituan.com/help/faq">常见问题</a></li>
-                                <li><a rel="nofollow" href="http://www.meituan.com/help/api">开放API</a></li>
-                                <li><a rel="nofollow" href="http://www.meituan.com/about/anticheat">反诈骗公告</a></li>
+                                <li><a rel="nofollow" class="J-selfservice-tab" data-tab="0" href="">申请退款</a></li>
+                                <li><a rel="nofollow" class="J-selfservice-tab" data-tab="2" href="">查看美团券密码</a></li>
+                                <li><a rel="nofollow" href="">常见问题</a></li>
+                                <li><a rel="nofollow" href="">开放API</a></li>
+                                <li><a rel="nofollow" href="">反诈骗公告</a></li>
                             </ul>
                         </div>
-
-                        <div class="site-info__item" >
+                        <div class="site-info__item">
                             <h3>客服电话</h3>
                             <ul>
                                 <li><span class="contact-numbers">400-660-5335</span></li>
                                 <li><span class="contact-time">(9:00-23:00)</span></li>
-                                <li><p class="desc">退退换货、查看美团券</p></li>
-                                <li><p><a href="http://www.meituan.com/help/selfservice" class="selfservice-link" gaevent="footer/selfservice">参考教程，轻松搞定!</a></p></li>
+                                <li>
+                                    <p class="desc">退退换货、查看美团券</p>
+                                </li>
                             </ul>
                         </div>
                     </div>
