@@ -438,3 +438,7 @@ li {
 .site-info__item  ul{
     -webkit-padding-start: 20px;
 }
+
+.caption{
+    height: 300px;
+}
