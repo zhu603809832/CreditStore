@@ -5,7 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+var settings = require('./database/settings');
+var mongoStore = require('connect-mongodb');
+var db = require('./database/session');
+//router
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
@@ -20,21 +23,32 @@ app.engine('html',require("ejs").__express); // or   app.engine("html",require("
 app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//session
+//session-memroy
 app.use(session({
   cookie: { maxAge: 60000 },
-  secret: '123456',
-  name: 'credit_store',//default:connect.sid
+  secret: settings.COOKIE_SECRET,
+  name: settings.NAME,//default:connect.sid
   resave: false,
   saveUninitialized:true, 
 }));
 
+//session-mongodb
+/*app.use(session({
+    cookie: { maxAge: 6000 },
+    secret: settings.COOKIE_SECRET,
+    store: new MongoStore({  
+        username: settings.USERNAME,
+        password: settings.PASSWORD,
+        url: settings.URL,
+        db: db})
+}))
+*/
 app.use('/', routes);
 app.use('/users', users);
 app.use('/login', login);
@@ -70,6 +84,17 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
+/*
+//http://www.sxt.cn/info-2562-u-324.html
+app.use(function(req, res, next){
+  res.locals.user = req.session.user;
+  var err = req.session.error;
+  delete req.session.error;
+  res.locals.message = '';
+  if (err) {
+    res.locals.message = '<dive class="alert alert-warning">' + err + '</div>';
+  };
+  next();
+})
+*/
 module.exports = app;
