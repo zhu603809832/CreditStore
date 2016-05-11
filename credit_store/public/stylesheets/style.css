@@ -442,3 +442,18 @@ li {
 .caption{
     height: 300px;
 }
+
+.left-nav-info{
+    padding: 0px;
+}
+
+.left-col-info{
+    padding: 0px;   
+    width: 200px;
+    height: 600px;
+}
+
+.right-col-info{
+    padding: 0px;   
+    height: 600px;
+}
