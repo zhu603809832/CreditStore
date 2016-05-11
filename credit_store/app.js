@@ -13,6 +13,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var template = require('./routes/template');
 
 var app = express();
 
@@ -49,10 +50,24 @@ app.use(session({
         db: db})
 }))
 */
+
+//http://www.sxt.cn/info-2562-u-324.html
+app.use(function(req, res, next){
+  res.locals.user = req.session.user;
+  var err = req.session.error;
+  delete req.session.error;
+  res.locals.message = '';
+  if (err) {
+    res.locals.message = '<dive class="alert alert-warning">' + err + '</div>';
+  };
+  next();
+})
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/login', login);
 app.use('/register', register);
+app.use('/template', template);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -84,17 +99,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-/*
-//http://www.sxt.cn/info-2562-u-324.html
-app.use(function(req, res, next){
-  res.locals.user = req.session.user;
-  var err = req.session.error;
-  delete req.session.error;
-  res.locals.message = '';
-  if (err) {
-    res.locals.message = '<dive class="alert alert-warning">' + err + '</div>';
-  };
-  next();
-})
-*/
+
 module.exports = app;
