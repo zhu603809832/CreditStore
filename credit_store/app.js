@@ -34,8 +34,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //session-memroy
 app.use(session({
   cookie: { maxAge: 60000 },
-  secret: settings.COOKIE_SECRET,
-  name: settings.NAME,//default:connect.sid
+  secret: settings.session.COOKIE_SECRET,
+  name: settings.session.NAME,//default:connect.sid
   resave: false,
   saveUninitialized:true, 
 }));
@@ -43,11 +43,11 @@ app.use(session({
 //session-mongodb
 /*app.use(session({
     cookie: { maxAge: 6000 },
-    secret: settings.COOKIE_SECRET,
+    secret: settings.session.COOKIE_SECRET,
     store: new MongoStore({  
-        username: settings.USERNAME,
-        password: settings.PASSWORD,
-        url: settings.URL,
+        username: settings.session.USERNAME,
+        password: settings.session.PASSWORD,
+        url: settings.session.URL,
         db: db})
 }))
 */
