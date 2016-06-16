@@ -5,10 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var fs = require('fs');
 
 //database 
 var settings = require('./database/settings');
-var mongoStore = require('connect-mongodb');
+var mongoStoreSession = require('connect-mongodb');
 var db = require('./database/session');
 var lineReader = require('line-reader');
 
@@ -49,7 +50,7 @@ app.use(session({
 /*app.use(session({
     cookie: { maxAge: 6000 },
     secret: settings.session.COOKIE_SECRET,
-    store: new MongoStore({  
+    store: new mongoStoreSession({  
         username: settings.session.USERNAME,
         password: settings.session.PASSWORD,
         url: settings.session.URL,
@@ -110,33 +111,38 @@ app.use(function(err, req, res, next) {
 app.InitAccountData = function()
 {
   var filename = settings.account.DATA_FILE
-  this.tbAccountData = new Array();
-  this.tbAccountData[0] = 1
-  this.tbAccountData[1] = 1
-  this.tbAccountData[2] = 1
+  var tbAccountData = new Array();
   console.log("readfrom file:%s start!", filename);
   var lineNum = 0;
+  /*
+  //asynchronous call
   lineReader.eachLine(filename, function(line, last, callback){
     var content = line.split('\t')
-    //this.tbAccountData[lineNum + 1] = content
-    //console.log(lineNum, content);
+    tbAccountData[lineNum] = content
     lineNum = lineNum + 1;
     if (callback) {
       callback();
     };
 
     if (last) {
-      console.log("readfrom file:%s end!", filename);
+      console.log("readfrom file:%s end! Length:%d.", filename, tbAccountData.length);
+      this.tbAccountData = tbAccountData || {};
       return false;
     };
   })
+*/
+  //sync call
+  var all_data = fs.readFileSync(filename, "utf-8");
+  var all_content = all_data.split('\n')
+  for (var i = 0; i < all_content.length; i++) {
+    var row_content = all_content[i].split("\t");
+    //delete the ending 
+    row_content[row_content.length - 1] = row_content[row_content.length - 1].replace(/\r|\n/ig,"");
+    console.log(row_content);
+  };
+  //console.log(all_content);
 }
 
-app.PrintAccountData = function()
-{
-  console.log(this.tbAccountData.length)
-}
 app.InitAccountData();
-app.PrintAccountData();
 
 module.exports = app;
