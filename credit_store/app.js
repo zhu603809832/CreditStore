@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var fs = require('fs');
+var file = require('./lib/file');
 
 //database 
 var settings = require('./database/settings');
@@ -111,36 +111,10 @@ app.use(function(err, req, res, next) {
 app.InitAccountData = function()
 {
   var filename = settings.account.DATA_FILE
-  var tbAccountData = new Array();
-  console.log("readfrom file:%s start!", filename);
-  var lineNum = 0;
-  /*
-  //asynchronous call
-  lineReader.eachLine(filename, function(line, last, callback){
-    var content = line.split('\t')
-    tbAccountData[lineNum] = content
-    lineNum = lineNum + 1;
-    if (callback) {
-      callback();
-    };
-
-    if (last) {
-      console.log("readfrom file:%s end! Length:%d.", filename, tbAccountData.length);
-      this.tbAccountData = tbAccountData || {};
-      return false;
-    };
-  })
-*/
-  //sync call
-  var all_data = fs.readFileSync(filename, "utf-8");
-  var all_content = all_data.split('\n')
-  for (var i = 0; i < all_content.length; i++) {
-    var row_content = all_content[i].split("\t");
-    //delete the ending 
-    row_content[row_content.length - 1] = row_content[row_content.length - 1].replace(/\r|\n/ig,"");
-    console.log(row_content);
-  };
-  //console.log(all_content);
+  var tbAccountData = new Array();  
+  tbAccountData = file.ReadTabFileSync(settings.account.DATA_FILE, 'utf-8');
+  this.tbAccountData = tbAccountData;
+  console.log(tbAccountData);
 }
 
 app.InitAccountData();
