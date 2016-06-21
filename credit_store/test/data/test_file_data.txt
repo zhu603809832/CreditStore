@@ -1,0 +1,3 @@
+account	password	wechat	mail	phone	createtime
+test0001	123456	test0001	test0001@163.com	18319157139	2016/5/15
+test0002	123457	test0002	test0001@164.com	18319157140	2016/5/16
