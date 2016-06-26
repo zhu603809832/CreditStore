@@ -9,9 +9,9 @@ var file = require('./lib/file');
 
 //database 
 var settings = require('./database/settings');
-var mongoStoreSession = require('connect-mongodb');
-var db = require('./database/session');
-var lineReader = require('line-reader');
+//var mongoStoreSession = require('connect-mongodb');
+//var db = require('./database/session');
+var mongodb_account = require('./database/account');
 
 //router
 var routes = require('./routes/index');
@@ -108,15 +108,23 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.InitAccountData = function()
+app.InitAccountDataFromFile = function()
 {
   var filename = settings.account.DATA_FILE
   var tbAccountData = new Array();  
   tbAccountData = file.ReadTabFileSync(settings.account.DATA_FILE, 'utf-8');
   this.tbAccountData = tbAccountData;
-  console.log(tbAccountData);
+  console.log('app.InitAccountDataFromFile');
 }
 
-app.InitAccountData();
+app.InitAccountCollection = function()
+{
+  mongodb_account.mongodb_connection_drop(mongodb_account.mongodb_connection_insert, this.tbAccountData);
+  //mongodb_account.mongodb_connection_find();
+  console.log('app.InitAccountCollection');
+}
+
+app.InitAccountDataFromFile();
+app.InitAccountCollection();
 
 module.exports = app;

@@ -10,7 +10,7 @@ describe("file.js", function() {
             assert.equal(data[0][0], "test0001", "test case should be expect.");
             assert.equal(data[0][1], "123456", "test case should be expect.");
             assert.equal(data[0][2], "test0001", "test case should be expect.");
-            console.log(data);
+            //console.log(data);
             done();
         })
     });
@@ -22,7 +22,7 @@ describe("file.js", function() {
                 assert.equal(data[0][0], "test0001", "test case should be expect.");
                 assert.equal(data[0][1], "123456", "test case should be expect.");
                 assert.equal(data[0][2], "test0001", "test case should be expect.");
-                console.log(data);
+                //console.log(data);
                 done();
             });
         })
