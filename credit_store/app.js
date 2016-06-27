@@ -119,8 +119,7 @@ app.InitAccountDataFromFile = function()
 
 app.InitAccountCollection = function()
 {
-  mongodb_account.mongodb_connection_drop(mongodb_account.mongodb_connection_insert, this.tbAccountData);
-  //mongodb_account.mongodb_connection_find();
+  mongodb_account.mongodb_connection_insert(this.tbAccountData);
   console.log('app.InitAccountCollection');
 }
 

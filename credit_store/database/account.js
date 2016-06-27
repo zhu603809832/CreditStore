@@ -35,6 +35,7 @@ function mongodb_connection_insert(tbData) {
                             console.log('collection: %s Successfully Insert data:[%d]', account_settings.COLLECTION_NAME, nCurSuccessDataIndex);
                             nCurSuccessDataIndex++;
                             if (nCurSuccessDataIndex >= tbData.length) {
+                                console.log('collection: %s Successfully Insert End, total is :[%d]', account_settings.COLLECTION_NAME, tbData.length)
                                 db.close();
                             };
                         } else {

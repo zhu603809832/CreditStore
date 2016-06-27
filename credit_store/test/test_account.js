@@ -2,7 +2,6 @@ var mongodb_account = require('../database/account.js');
 var assert = require('assert');
 
 describe("account.js", function() {
-    /*
     describe("mongodb_connection_insert", function() {
         it("should insert the database data successfully.", function(done) {
             var ts = new Date().getTime();
@@ -20,7 +19,7 @@ describe("account.js", function() {
             done();
         })
     });
-*/
+
     describe("mongodb_connection_find", function() {
         it("should find the database data successfully.", function(done) {
             mongodb_account.mongodb_connection_find();
@@ -41,7 +40,7 @@ describe("account.js", function() {
             };
             var tbArrayData = new Array();
             tbArrayData.push(tbData)
-            mongodb_account.mongodb_connection_drop(mongodb_account.mongodb_connection_insert, tbArrayData);
+            mongodb_account.mongodb_connection_drop(null);
             done();
         })
     });
