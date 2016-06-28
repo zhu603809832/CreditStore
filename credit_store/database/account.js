@@ -6,13 +6,13 @@ var mongodb = require("mongodb");
 var server = new mongodb.Server(db_settings.HOST, db_settings.PORT, { auto_reconnect: true, native_parser: true });
 var db = new mongodb.Db(db_settings.DBNAME, server, { safe: false });
 
-function mongodb_connection_insert(tbData) {
+function mongodb_connection_insert(tbArrayData) {
     db.open(function(err, db) {
         if (!err) {
             db.collection(account_settings.COLLECTION_NAME, function(err, collection) {
                 var nCurSuccessDataIndex = 0;
-                for (var i = 0; i < tbData.length; i++) {
-                    var row_data = tbData[i];
+                for (var i = 0; i < tbArrayData.length; i++) {
+                    var row_data = tbArrayData[i];
                     var account = row_data[1];
                     var password = row_data[2];
                     var wechat = row_data[3];
@@ -34,8 +34,8 @@ function mongodb_connection_insert(tbData) {
                         if (data) {
                             console.log('collection: %s Successfully Insert data:[%d]', account_settings.COLLECTION_NAME, nCurSuccessDataIndex);
                             nCurSuccessDataIndex++;
-                            if (nCurSuccessDataIndex >= tbData.length) {
-                                console.log('collection: %s Successfully Insert End, total is :[%d]', account_settings.COLLECTION_NAME, tbData.length)
+                            if (nCurSuccessDataIndex >= tbArrayData.length) {
+                                console.log('collection: %s Successfully Insert End, total is :[%d]', account_settings.COLLECTION_NAME, tbArrayData.length)
                                 db.close();
                             };
                         } else {
