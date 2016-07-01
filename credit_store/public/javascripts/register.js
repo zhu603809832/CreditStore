@@ -7,4 +7,9 @@ app.controller('RegisterCtrl', function($scope) {
     // $scope.register.name = $scope.register.name;
     // $scope.register.password = $scope.register.password;
     // $scope.register.confirmpassword = $scope.register.confirmpassword;
+    $scope.register_tip="";
+    if ($scope.input_password != $scope.input_confirmpassword) {
+      //The password you entered is not corresponding to the two time.
+      $scope.register_tip = "The password you entered is not corresponding to the two time.";
+    };
 });
