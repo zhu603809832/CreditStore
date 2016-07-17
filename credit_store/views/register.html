@@ -6,7 +6,7 @@
         <%= title %>
     </title>
     <%include header.html%>
-    <script src="./javascripts/register.js"></script>
+        <script src="./javascripts/register.js"></script>
 </head>
 
 <body>
@@ -23,43 +23,51 @@
                 <a href="javascript:void(0)"><i class="icon icon--email"></i>邮箱注册</a>
             </div>
             <div class="col-md-6 column">
-                <form class="form-horizontal login-input" role="form">
+                <form class="form-horizontal login-input" role="form" name="registerform" ng-submit="on_register()">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail3" ng-model="input_mail"/>
+                            <input type="email" class="form-control" id="register_mail" name="registermail" ng-model="register.input_mail" required/>
+                            <span style="color:red" ng-show="registerform.registermail.$dirty && registerform.registermail.$invalid">
+                                <span ng-show="registerform.registermail.$error.required">邮箱是必须的。</span>
+                                <span ng-show="registerform.registermail.$error.email">非法的邮箱地址。</span>
+                            </span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">名字</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword3" ng-model="input_name"/>
+                            <input type="text" class="form-control" id="register_name" name="registername" ng-model="register.input_name" required/>
+                            <span style="color:red" ng-show="registerform.registername.$dirty && registerform.registername.$invalid">
+                                <span ng-show="registerform.registername.$error.required">用户名是必须的。</span>
+                            </span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" ng-model="input_password"/>
+                            <input type="password" class="form-control" id="register_password" name="registerpassword" ng-model="register.input_password" required/>
+                            <span style="color:red" ng-show="registerform.registerpassword.$dirty && registerform.registerpassword.$invalid">
+                                <span ng-show="registerform.registerpassword.$error.required">密码是必须的。</span>
+                            </span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">确认</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword3" ng-model="input_confirmpassword"/>
+                            <input type="password" class="form-control" id="register_password_confirm" name="registerconfirmpassword" ng-model="register.input_confirmpassword" required/>
+                            <span style="color:red" ng-show="registerform.registerconfirmpassword.$dirty">
+                                <span ng-show="registerform.registerconfirmpassword.$error.required && registerform.registerconfirmpassword.$invalid ">确认密码是必须的。</span>
+                                <span ng-show="on_check_not_validate()">两次输入密码不一致。</span>
+                            </span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default" ng-click="on_register">注册</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <!-- <p>mail = {{input_mail}}</p>
-                            <p>name = {{input_name}}</p>
-                            <p>password = {{input_password}}</p>
-                            <p>confirmpassword = {{input_confirmpassword}}</p> -->
-                            <p>{{register_tip}}</p>
+                            <button type="submit" class="btn btn-default" ng-disabled="registerform.registermail.$invalid || registerform.registername.$invalid || registerform.registerpassword.$invalid || registerform.registerconfirmpassword.$invalid || on_check_not_validate()">注册</button>
+                            <p style="color:red" ng-show="true">
+                                <span ng-show="true">{{register_ret_tip}}</span>
+                            </p>
                         </div>
                     </div>
                 </form>

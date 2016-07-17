@@ -156,6 +156,10 @@ a {
     padding: 20px;
 }
 
+.register-tip {
+    color: red;
+}
+
 .index-header {
     margin: 20px;
 }
@@ -435,10 +439,10 @@ li {
     color: #666;
 }
 
-.site-info__item  ul{
+.site-info__item ul {
     -webkit-padding-start: 20px;
 }
 
-.caption{
+.caption {
     height: 300px;
 }
