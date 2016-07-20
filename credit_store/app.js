@@ -109,20 +109,26 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.InitAccountDataFromFile = function() {
+function InitAccountDataFromFile() {
     var filename = settings.account.DATA_FILE
-    var tbAccountData = new Array();
-    tbAccountData = file.ReadTabFileSync(settings.account.DATA_FILE, 'utf-8');
-    this.tbAccountData = tbAccountData;
+    var array_data = new Array();
+    array_data = file.ReadTabFileSync(settings.account.DATA_FILE, 'utf-8');
+    app.array_data = array_data;
     //console.log('app.InitAccountDataFromFile');
 }
 
-app.InitAccountCollection = function() {
-    mongodb_account.mongodb_connection_insert(this.tbAccountData);
+function InitAccountCollection() {
+    mongodb_account.mongodb_connection_insert(app.array_data);
     console.log('app.InitAccountCollection');
 }
 
-//app.InitAccountDataFromFile();
-//app.InitAccountCollection();
+function PasswordEncryptCache() {
+    console.log("PasswordEncryptCache")
+    app.password_cach = {}
+}
+
+InitAccountDataFromFile();
+InitAccountCollection();
+//PasswordEncryptCache();
 
 module.exports = app;
