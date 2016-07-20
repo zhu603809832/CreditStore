@@ -1,5 +1,2 @@
-@echo "kill mongod process..."
-taskkill /F /IM "mongod"
-
-@echo "mongod node begin to start"
+@echo "mongod service begin to start"
 mongod --dbpath=E:\mongodb\db --logpath=E:\mongodb\log\log.log
