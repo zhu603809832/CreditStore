@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var file = require('./lib/file');
+var webRouter = require('./web_router');
 
 //database 
 var settings = require('./database/settings');
@@ -13,20 +14,11 @@ var settings = require('./database/settings');
 //var db = require('./database/session');
 var mongodb_account = require('./database/account');
 
-//router
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var login = require('./routes/login');
-var register = require('./routes/register');
-var template = require('./routes/template');
-var info = require('./routes/info');
-
 //instance
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'ejs');
 app.engine('html', require("ejs").__express); // or   app.engine("html",require("ejs").renderFile);
 app.set('view engine', 'html');
 
@@ -71,12 +63,7 @@ app.use(function(req, res, next) {
     next();
 })
 
-app.use('/', routes);
-app.use('/template', template);
-app.use('/users', users);
-app.use('/login', login);
-app.use('/register', register);
-app.use('/info', info);
+app.use('/', webRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -127,8 +114,8 @@ function PasswordEncryptCache() {
     app.password_cach = {}
 }
 
-InitAccountDataFromFile();
-InitAccountCollection();
+//InitAccountDataFromFile();
+//InitAccountCollection();
 //PasswordEncryptCache();
 
 module.exports = app;
