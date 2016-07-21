@@ -1,4 +1,4 @@
-var file = require('../lib/file.js');
+var file = require('../../lib/file.js');
 var assert = require('assert');
 var testFilePath = __dirname + '/data/test_file_data.txt';
 

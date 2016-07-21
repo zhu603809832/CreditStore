@@ -1,4 +1,4 @@
-var mongodb_account = require('../database/account.js');
+var mongodb_account = require('../../database/account.js');
 var assert = require('assert');
 
 describe("account.js", function() {

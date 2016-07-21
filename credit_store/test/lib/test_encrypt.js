@@ -1,4 +1,4 @@
-var encrypt = require('../lib/encrypt.js');
+var encrypt = require('../../lib/encrypt.js');
 var assert = require('assert');
 
 describe("encrypt.js", function() {
