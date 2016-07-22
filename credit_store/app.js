@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var file = require('./lib/file');
+var config = require('./config');
+
+var errorPageMiddleware = require('./middlewares/error_page');
 var webRouter = require('./web_router');
 
 //database 
@@ -21,6 +24,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require("ejs").__express); // or   app.engine("html",require("ejs").renderFile);
 app.set('view engine', 'html');
+app.enable('trust proxy');
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -74,10 +78,12 @@ app.use(function(req, res, next) {
 
 // error handlers
 
+app.use(errorPageMiddleware.errorPage);
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
+        console.log("development error handler", err);
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -89,6 +95,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
+    console.log("production error handler", err);
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,

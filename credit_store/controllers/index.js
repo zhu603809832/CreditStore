@@ -1,6 +1,5 @@
 exports.showIndexPage = function(req, res, next){
     res.render('index', { title: 'website index' });
-    console.log("showIndexPage")
 };
 
 exports.index = function(req, res, next){

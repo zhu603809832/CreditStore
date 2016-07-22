@@ -23,14 +23,17 @@ app.controller('RegisterCtrl', function($scope, $http) {
         promise.success(function(data, status, headers, config) {
             var code = data.code;
             var msg = data.msg;
-            if (code == 0) {
-                $scope.register_ret_tip = msg;
-                return
+            if (code == 1) {
+                $scope.register_ret_tip = data.msg;
             }
         });
 
         promise.error(function(data, status, headers, config) {
-
+            var code = data.code;
+            if (code == 0) {
+                $scope.register_ret_tip = data.msg;
+                return
+            }
         });
         return true;
     };
