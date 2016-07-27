@@ -2,7 +2,7 @@
  * 给所有的 Model 扩展功能
  * http://mongoosejs.com/docs/plugins.html
  */
-var tools = require('../common/tools');
+var tools = require('../lib/tools');
 
 module.exports = function (schema) {
   schema.methods.create_at_ago = function () {

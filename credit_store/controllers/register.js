@@ -1,8 +1,12 @@
 var validator = require('validator');
 var eventproxy = require('eventproxy');
+var utility = require('utility');
 var logger = require('../lib/log')
-var config = require('../config');
 var tools = require('../lib/tools');
+var mail = require('../lib/mail');
+var config = require('../config');
+var proxy = require('../proxy')
+var User = proxy.User;
 
 exports.showRegisterPage = function(req, res, next) {
     res.render('register', { title: 'website register' });
@@ -10,7 +14,7 @@ exports.showRegisterPage = function(req, res, next) {
 
 exports.register = function(req, res, next) {
     var email = validator.trim(req.body.mail).toLowerCase();
-    var account_name = validator.trim(req.body.name).toLowerCase();
+    var loginname = validator.trim(req.body.name).toLowerCase();
     var password = validator.trim(req.body.password);
     var confirmpassword = validator.trim(req.body.confirmpassword);
 
@@ -19,21 +23,21 @@ exports.register = function(req, res, next) {
     ep.on('prop_err', function(msg) {
         res.status(422);
         //res.render('register',{}) //客户端用angularjs，就不用render了。
-        res.send({ code: 0, msg: msg, email: email, account: account_name, title: 'website register' });
+        res.send({ code: 0, msg: msg, email: email, account: loginname, title: 'website register' });
     })
 
     //验证信息的正确性
-    if ([email, account_name, password, confirmpassword].some(function(item) {
+    if ([email, loginname, password, confirmpassword].some(function(item) {
             return item === '';
         })) {
         return ep.emit('prop_err', '你输入的信息不完整。');
     }
 
-    if (account_name.length < 5) {
+    if (loginname.length < 5) {
         return ep.emit('prop_err', '用户名至少需要5个字符。');
     }
 
-    if (!tools.validateId(account_name)) {
+    if (!tools.validateId(loginname)) {
         return ep.emit('prop_err', '用户名不合法。');
     }
 
@@ -44,6 +48,35 @@ exports.register = function(req, res, next) {
     if (password !== confirmpassword) {
         return ep.emit('prop_err', '两次输入密码不一致。');
     }
-    
-    res.send({ code: 1, msg: email + "注册成功！", email: email, account: account_name, title: 'website register' });
+    //验证信息的正确性 END
+    //res.send({ code: 1, msg: email + "注册成功！", email: email, account: loginname, title: 'website register' });
+    User.getUsersByQuery({
+        '$or': [
+            { 'loginname': loginname },
+            { 'email': email }
+        ]
+    }, {}, function(err, users) {
+        if (err) {
+            return next(err);
+        }
+        
+        if (users.length > 0) {
+            ep.emit('prop_err', '用户名或邮箱已被使用。');
+            return;
+        }
+
+        tools.bhash(password, ep.done(function(passhash) {
+            // create gravatar
+            var avatarUrl = User.makeGravatar(email);
+            User.newAndSave(loginname, loginname, passhash, email, avatarUrl, false, function(err) {
+                if (err) {
+                    return next(err);
+                }
+                // 发送激活邮件
+                mail.sendActiveMail(email, utility.md5(email + passhash + config.session_secret), loginname);
+                res.send({ code: 1, msg: '欢迎加入 ' + config.name + '！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。', email: email, account: loginname, title: 'website register' });
+            });
+
+        }));
+    });
 };

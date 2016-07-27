@@ -20,6 +20,7 @@ var UserSchema = new Schema({
     score: { type: Number, default: 0 },
     create_at: { type: Date, default: Date.now },
     update_at: { type: Date, default: Date.now },
+    is_star: { type: Boolean },
     active: { type: Boolean, default: false },
 
     receive_reply_mail: { type: Boolean, default: false },
@@ -49,3 +50,9 @@ UserSchema.virtual('isAdvanced').get(function () {
   // 积分高于 700 则认为是高级用户
   return this.score > 700 || this.is_star;
 });
+
+UserSchema.index({loginname: 1}, {unique: true});
+UserSchema.index({email: 1}, {unique: true});
+UserSchema.index({score: -1});
+UserSchema.index({accessToken: 1});
+mongoose.model('User', UserSchema);
