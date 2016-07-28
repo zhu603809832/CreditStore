@@ -49,7 +49,6 @@ exports.register = function(req, res, next) {
         return ep.emit('prop_err', '两次输入密码不一致。');
     }
     //验证信息的正确性 END
-    //res.send({ code: 1, msg: email + "注册成功！", email: email, account: loginname, title: 'website register' });
     User.getUsersByQuery({
         '$or': [
             { 'loginname': loginname },
@@ -59,7 +58,7 @@ exports.register = function(req, res, next) {
         if (err) {
             return next(err);
         }
-        
+
         if (users.length > 0) {
             ep.emit('prop_err', '用户名或邮箱已被使用。');
             return;
