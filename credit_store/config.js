@@ -11,11 +11,11 @@ var config = {
     host: 'localhost',
     // 邮箱配置
     mail_opts: {
-        host: 'smtp.126.com',
-        port: 465,
+        host: "smtp.qq.com", // 主机
+        port: 465, // SMTP 端口
         auth: {
-            user: 'club@126.com',
-            pass: 'club'
+            user: '895896936@qq.com',
+            pass: 'emdzmmclpztobchg'
         }
     },
     // mongodb 配置
@@ -25,8 +25,14 @@ var config = {
     redis_port: 6379,
     redis_db: 0,
 
-    session_secret: 'credit_store_secret', // 务必修改
-    auth_cookie_name: 'credit_store',
+    //网易
+    //服务器地址: POP3服务器: pop .163.com
+    //SMTP服务器: smtp .163.com
+    //IMAP服务器: imap .163.com
+
+    session_secret: 'credit_store_secret',
+    auth_cookie_name: 'credit_store_cookie_name',
+    cooke_max_age: 1000 * 60 * 60 * 24 * 30,
 };
 
 if (process.env.NODE_ENV === 'test') {

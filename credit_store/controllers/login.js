@@ -1,4 +1,5 @@
 var eventproxy = require('eventproxy');
+var validator = require('validator');
 var User = require('../proxy').User;
 var tools = require('../lib/tools');
 var mail = require('../lib/mail');
@@ -52,20 +53,7 @@ exports.login = function(req, res, next) {
             // store session cookie
             authMiddleWare.gen_session(user, res);
             //check at some page just jump to home page
-            var notJump = [
-                '/active_account', //active page
-                '/reset_pass', //reset password page, avoid to reset twice
-                '/signup', //regist page
-                '/search_pass' //serch pass page
-            ];
-            var refer = req.session._loginReferer || '/';
-            for (var i = 0, len = notJump.length; i !== len; ++i) {
-                if (refer.indexOf(notJump[i]) >= 0) {
-                    refer = '/';
-                    break;
-                }
-            }
-            res.redirect(refer);
+            res.redirect('/');
         }));
     });
 };
