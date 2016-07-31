@@ -22,6 +22,7 @@ router.post('/logout', logout.logout);//注销逻辑
 
 router.get('/register', register.showRegisterPage);
 router.post('/register', register.register);
+router.get('/active_account', register.activeAccount);
 
 router.get('/info', info.showInfoPage);
 router.post('/info', info.info);

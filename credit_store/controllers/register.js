@@ -79,3 +79,31 @@ exports.register = function(req, res, next) {
         }));
     });
 };
+
+exports.activeAccount = function(req, res, next) {
+    console.log("test!!!activeAccount")
+    var key = validator.trim(req.query.key);
+    var name = validator.trim(req.query.name);
+    User.getUserByLoginName(name, function(err, user) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return next(new Error('[ACTIVE_ACCOUNT] no such user: ' + name));
+        }
+        var passhash = user.password;
+        if (!user || utility.md5(user.email + passhash + config.session_secret) !== key) {
+            return res.render('notify', { error: '信息有误，帐号无法被激活。' });
+        }
+        if (user.active) {
+            return res.render('notify', { error: '帐号已经是激活状态。' });
+        }
+        user.active = true;
+        user.save(function(err) {
+            if (err) {
+                return next(err);
+            }
+            res.render('notify', { success: '恭喜，帐号激活成功，请登录' });
+        });
+    });
+};

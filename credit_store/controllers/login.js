@@ -11,16 +11,16 @@ exports.showLoginPage = function(req, res, next) {
 };
 
 exports.login = function(req, res, next) {
-    var loginname = validator.trim(req.body.name).toLowerCase();
-    var pass = validator.trim(req.body.pass);
+    var loginname = validator.trim(req.body.username).toLowerCase();
+    var password = validator.trim(req.body.password);
     var ep = new eventproxy();
     ep.fail(next);
 
-    if (!loginname || !pass) {
+    if (!loginname || !password) {
         res.status(422);
         return res.send({ code: 0, error: '信息不完整。', title: 'website login' });
     }
-
+    
     var getUser = null;
     if (loginname.indexOf('@') !== -1) {
         getUser = User.getUserByMail;
@@ -32,6 +32,7 @@ exports.login = function(req, res, next) {
         res.status(403);
         res.send({ error: '用户名或密码错误', title: 'website login' });
     });
+    
     getUser(loginname, function(err, user) {
         if (err) {
             return next(err);
@@ -39,8 +40,8 @@ exports.login = function(req, res, next) {
         if (!user) {
             return ep.emit('login_error');
         }
-        var passhash = user.pass;
-        tools.bcompare(pass, passhash, ep.done(function(bool) {
+        var passhash = user.password;
+        tools.bcompare(password, passhash, ep.done(function(bool) {
             if (!bool) {
                 return ep.emit('login_error');
             }
@@ -48,7 +49,7 @@ exports.login = function(req, res, next) {
                 // 重新发送激活邮件
                 mail.sendActiveMail(user.email, utility.md5(user.email + passhash + config.session_secret), user.loginname);
                 res.status(403);
-                return res.send({ error: '此帐号还没有被激活，激活链接已发送到 ' + user.email + ' 邮箱，请查收。' });
+                return res.send({ error: '此帐号还没有被激活，激活链接已发送到 ' + user.email + ' 邮箱，请查收。' , title: 'website login'});
             }
             // store session cookie
             authMiddleWare.gen_session(user, res);

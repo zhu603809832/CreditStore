@@ -8,7 +8,8 @@ var config = {
     site_logo: '/public/images/cnodejs_light.svg', // default is `name`
     site_icon: '/public/images/cnode_icon_32.png', // 默认没有 favicon, 这里填写网址
     // 社区的域名
-    host: 'localhost',
+    host: '127.0.0.1',
+    port: 18080,
     // 邮箱配置
     mail_opts: {
         host: "smtp.qq.com", // 主机

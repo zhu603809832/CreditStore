@@ -4,7 +4,7 @@ var config        = require('../config');
 var util          = require('util');
 var logger = require('./log');
 var transporter     = mailer.createTransport(smtpTransport(config.mail_opts));
-var SITE_ROOT_URL = 'http://' + config.host;
+var SITE_ROOT_URL = 'http://' + config.host + ":" + config.port;
 
 /**
  * Send an email
