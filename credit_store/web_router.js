@@ -4,6 +4,7 @@ var index = require('./controllers/index');
 var login = require('./controllers/login');
 var logout = require('./controllers/logout');
 var register = require('./controllers/register');
+var password = require('./controllers/password');
 var info = require('./controllers/info');
 var template = require('./controllers/template');
 var users = require('./controllers/users');
@@ -20,9 +21,14 @@ router.post('/login', login.login);//登陆逻辑
 router.get('/logout', logout.showLogoutPage);//注销页面
 router.post('/logout', logout.logout);//注销逻辑
 
-router.get('/register', register.showRegisterPage);
-router.post('/register', register.register);
-router.get('/active_account', register.activeAccount);
+router.get('/register', register.showRegisterPage);//注册页面
+router.post('/register', register.register);//注册逻辑
+router.get('/active_account', register.activeAccount);//激活账号逻辑
+
+router.get('/password_recovery', password.showPasswordRecoveryPage);//密码找回页面
+router.post('/password_recovery', password.passwordRecovery);////密码找回逻辑
+router.get('/password_reset', password.resetPasssword);//密码重置页面，需要传递参数
+router.post('/password_reset', password.updatePassword);//密码重置逻辑
 
 router.get('/info', info.showInfoPage);
 router.post('/info', info.info);

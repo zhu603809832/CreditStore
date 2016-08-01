@@ -34,6 +34,9 @@ var config = {
     session_secret: 'credit_store_secret',
     auth_cookie_name: 'credit_store_cookie_name',
     cooke_max_age: 1000 * 60 * 60 * 24 * 30,
+
+    //重置密码有效期
+    reset_password_expire_time: 1000 * 60 * 60 * 24,
 };
 
 if (process.env.NODE_ENV === 'test') {
