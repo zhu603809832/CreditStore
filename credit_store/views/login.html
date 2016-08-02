@@ -1,92 +1,101 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>
-        <%= title %>
-    </title>
-    <%include header.html%>
-</head>
+	<head>
+		<title>
+			<%= title %>
+		</title>
+		<%include header.html%>
+	</head>
 
-<body>
-    <div class="container">
-        <header class="row clearfix login-header">
-            <a class="site-logo" href="/"></a>
-        </header>
-        <div class="row clearfix login-content">
-            <div class="col-md-6 column">
-                <img alt="140x140" src="/images/loginhead.jpg" />
-            </div>
-            <div class="col-md-6 column">
-                <form class="form-horizontal login-input" role="form" method="post">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">账号</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" id="username" name="username"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password" name="password"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" />7天内自动登录
-                                </label>
-                                <a class="login-forget-pwd" href="/">忘记密码？</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default btn-block">登录</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <a href="/register">还没帐号？注册一个</a>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <h4 class="title-wrapper">
-                            <span class="title">用合作的帐号登录</span>
-                        </h4>
-                    </div>
-                    <div class="oauth cf">
-                        <a class="oauth__link oauth__link--qq" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/qq&quot;}" target="_blank"></a>
-                        <a class="oauth__link oauth__link--alipay" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/aplipay&quot;}" target="_blank"></a>
-                        <a class="oauth__link oauth__link--weibo" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/sina&quot;}" target="_blank"></a>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row clearfix login-footer">
-            <footer>
-                <div class="login-site-info-nav">
-                    <ul class="nav navbar-nav">
-                        <li><a rel="nofollow" href="/">关于美团</a></li>
-                        <li><a rel="nofollow" href="/">美团承诺</a></li>
-                        <li><a rel="nofollow" href="/">加入我们</a></li>
-                        <li><a rel="nofollow " href="/">商家入驻</a></li>
-                        <li><a rel="nofollow " href="/">帮助中心</a></li>
-                        <li class="last "><a href="/">美团手机版</a></li>
-                    </ul>
-                </div>
-                <div class="copyright ">
-                    <p>
-                        ©<span>2016</span>
-                        <a href="http://meituan.com/ ">美团网团购</a> meituan.com
-                        <a href="http://www.miibeian.gov.cn/ " target="_blank ">京ICP证070791号</a> 京公网安备11010502025545号
-                        <a href="http://meituan.com/about/rules " target="_blank "> 电子公告服务规则</a>
-                    </p>
-                </div>
-            </footer>
-        </div>
-    </div>
-</body>
+	<body>
+		<div class="container">
+			<header class="row clearfix login-header">
+				<a class="site-logo" href="/"></a>
+			</header>
+			<div class="row clearfix login-content">
+				<div class="col-md-6 column">
+					<img alt="140x140" src="/images/loginhead.jpg" />
+				</div>
+				<div class="col-md-6 column">
+					<form class="form-horizontal login-input" role="form" method="post">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">账号</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="username" name="username"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="password" name="password"/>
+							</div>
+						</div>
+						<% if (typeof(error) !== 'undefined' && error) { %>
+						<div class="form-group">		
+							<div class="col-sm-offset-2 col-sm-10">	
+							<span style="color:red"><%= error %></span>
+							</div>		
+						</div>				
+										
+									
+									<% } %>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" />7天内自动登录
+									</label>
+									<a class="login-forget-pwd" href="/password_recovery">忘记密码？</a>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-default btn-block">登录</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<a href="/register">还没帐号？注册一个</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<h4 class="title-wrapper">
+										<span class="title">用合作的帐号登录</span>
+										</h4>
+									</div>
+									<div class="oauth cf">
+										<a class="oauth__link oauth__link--qq" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/qq&quot;}" target="_blank"></a>
+										<a class="oauth__link oauth__link--alipay" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/aplipay&quot;}" target="_blank"></a>
+										<a class="oauth__link oauth__link--weibo" href="/" data-mtevent="{&quot;la&quot;:&quot;oauth/sina&quot;}" target="_blank"></a>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="row clearfix login-footer">
+							<footer>
+								<div class="login-site-info-nav">
+									<ul class="nav navbar-nav">
+										<li><a rel="nofollow" href="/">关于美团</a></li>
+											<li><a rel="nofollow" href="/">美团承诺</a></li>
+												<li><a rel="nofollow" href="/">加入我们</a></li>
+													<li><a rel="nofollow " href="/">商家入驻</a></li>
+														<li><a rel="nofollow " href="/">帮助中心</a></li>
+															<li class="last "><a href="/">美团手机版</a></li>
+															</ul>
+														</div>
+														<div class="copyright ">
+															<p>
+																©<span>2016</span>
+																<a href="http://meituan.com/ ">美团网团购</a> meituan.com
+																<a href="http://www.miibeian.gov.cn/ " target="_blank ">京ICP证070791号</a> 京公网安备11010502025545号
+																<a href="http://meituan.com/about/rules " target="_blank "> 电子公告服务规则</a>
+																</p>
+															</div>
+														</footer>
+													</div>
+												</div>
+											</body>
 
-</html>
+										</html>

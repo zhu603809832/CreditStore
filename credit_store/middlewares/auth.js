@@ -33,7 +33,7 @@ exports.userRequired = function (req, res, next) {
 
 exports.blockUser = function () {
   return function (req, res, next) {
-    if (req.path === '/signout') {
+    if (req.path === '/logout') {
       return next();
     }
 
@@ -62,7 +62,9 @@ exports.gen_session = gen_session;
 exports.authUser = function (req, res, next) {
   var ep = new eventproxy();
   ep.fail(next);
-
+  console.log("authUser");
+  console.log("cookies:",req.cookies);
+  console.log("req.session.user:",req.session.user);
   // Ensure current_user always has defined.
   res.locals.current_user = null;
 

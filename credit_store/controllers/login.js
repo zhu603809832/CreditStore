@@ -18,7 +18,8 @@ exports.login = function(req, res, next) {
 
     if (!loginname || !password) {
         res.status(422);
-        return res.send({ code: 0, error: '信息不完整。', title: 'website login' });
+        res.render('login', {error: '信息不完整。', title: 'website login' });
+        return;
     }
     
     var getUser = null;
@@ -30,7 +31,7 @@ exports.login = function(req, res, next) {
 
     ep.on('login_error', function(login_error) {
         res.status(403);
-        res.send({ error: '用户名或密码错误', title: 'website login' });
+        res.render('login', { error: '用户名或密码错误', title: 'website login' });
     });
     
     getUser(loginname, function(err, user) {
@@ -49,7 +50,7 @@ exports.login = function(req, res, next) {
                 // 重新发送激活邮件
                 mail.sendActiveMail(user.email, utility.md5(user.email + passhash + config.session_secret), user.loginname);
                 res.status(403);
-                return res.send({ error: '此帐号还没有被激活，激活链接已发送到 ' + user.email + ' 邮箱，请查收。' , title: 'website login'});
+                return res.render('login', { error: '此帐号还没有被激活，激活链接已发送到 ' + user.email + ' 邮箱，请查收。' , title: 'website login'});
             }
             // store session cookie
             authMiddleWare.gen_session(user, res);

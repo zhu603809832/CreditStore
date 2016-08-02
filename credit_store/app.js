@@ -5,9 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var file = require('./lib/file');
+var RedisStore = require('connect-redis')(session);
 var config = require('./config');
-
+require('./models');
+var auth = require('./middlewares/auth');
 var errorPageMiddleware = require('./middlewares/error_page');
 var webRouter = require('./web_router');
 
@@ -33,6 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
+/*
 //session-memroy
 app.use(session({
     cookie: { maxAge: 60000 },
@@ -43,7 +45,7 @@ app.use(session({
 }));
 
 //session-mongodb
-/*app.use(session({
+app.use(session({
     cookie: { maxAge: 6000 },
     secret: settings.session.COOKIE_SECRET,
     store: new mongoStoreSession({  
@@ -53,6 +55,19 @@ app.use(session({
         db: db})
 }))
 */
+//session-redis 
+app.use(session({
+  secret: config.session_secret,
+  store: new RedisStore({
+    port: config.redis_port,
+    host: config.redis_host,
+  }),
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// custom middleware
+app.use(auth.authUser);
 
 //http://www.sxt.cn/info-2562-u-324.html
 app.use(function(req, res, next) {
@@ -77,8 +92,8 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
 app.use(errorPageMiddleware.errorPage);
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -102,27 +117,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-function InitAccountDataFromFile() {
-    var filename = settings.account.DATA_FILE
-    var array_data = new Array();
-    array_data = file.ReadTabFileSync(settings.account.DATA_FILE, 'utf-8');
-    app.array_data = array_data;
-    //console.log('app.InitAccountDataFromFile');
-}
-
-function InitAccountCollection() {
-    mongodb_account.mongodb_connection_insert(app.array_data);
-    console.log('app.InitAccountCollection');
-}
-
-function PasswordEncryptCache() {
-    console.log("PasswordEncryptCache")
-    app.password_cach = {}
-}
-
-//InitAccountDataFromFile();
-//InitAccountCollection();
-//PasswordEncryptCache();
 
 module.exports = app;

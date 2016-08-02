@@ -26,15 +26,12 @@ var config = {
     redis_port: 6379,
     redis_db: 0,
 
-    //网易
-    //服务器地址: POP3服务器: pop .163.com
-    //SMTP服务器: smtp .163.com
-    //IMAP服务器: imap .163.com
-
     session_secret: 'credit_store_secret',
     auth_cookie_name: 'credit_store_cookie_name',
     cooke_max_age: 1000 * 60 * 60 * 24 * 30,
 
+    admins: { user_login_name: true },
+    
     //重置密码有效期
     reset_password_expire_time: 1000 * 60 * 60 * 24,
 };
