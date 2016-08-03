@@ -63,7 +63,7 @@ app.use(session({
 }));
 
 // custom middleware
-app.use(auth.authUser);
+//app.use(auth.authUser);
 app.use(auth.blockUser());
 
 //http://www.sxt.cn/info-2562-u-324.html

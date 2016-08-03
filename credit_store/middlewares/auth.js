@@ -32,7 +32,6 @@ exports.userRequired = function (req, res, next) {
 };
 
 exports.blockUser = function () {
-  console.log("check is blockuser..");
   return function (req, res, next) {
     if (req.path === '/logout') {
       return next();
