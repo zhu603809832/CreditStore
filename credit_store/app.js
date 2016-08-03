@@ -12,12 +12,6 @@ var auth = require('./middlewares/auth');
 var errorPageMiddleware = require('./middlewares/error_page');
 var webRouter = require('./web_router');
 
-//database 
-var settings = require('./database/settings');
-//var mongoStoreSession = require('connect-mongodb');
-//var db = require('./database/session');
-var mongodb_account = require('./database/account');
-
 //instance
 var app = express();
 
@@ -27,7 +21,6 @@ app.engine('html', require("ejs").__express); // or   app.engine("html",require(
 app.set('view engine', 'html');
 app.enable('trust proxy');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -36,6 +29,9 @@ app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
 /*
 //session-memroy
+//var settings = require('./database/settings');
+//var mongoStoreSession = require('connect-mongodb');
+//var db = require('./database/session');
 app.use(session({
     cookie: { maxAge: 60000 },
     secret: settings.session.COOKIE_SECRET,
@@ -68,6 +64,7 @@ app.use(session({
 
 // custom middleware
 app.use(auth.authUser);
+app.use(auth.blockUser());
 
 //http://www.sxt.cn/info-2562-u-324.html
 app.use(function(req, res, next) {

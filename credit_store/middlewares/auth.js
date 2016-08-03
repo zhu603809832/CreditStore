@@ -32,13 +32,14 @@ exports.userRequired = function (req, res, next) {
 };
 
 exports.blockUser = function () {
+  console.log("check is blockuser..");
   return function (req, res, next) {
     if (req.path === '/logout') {
       return next();
     }
 
     if (req.session.user && req.session.user.is_block && req.method !== 'GET') {
-      return res.status(403).send('您已被管理员屏蔽了。有疑问请联系 @alsotang。');
+      return res.status(403).send('您已被管理员屏蔽了。有疑问请联系管理员。');
     }
     next();
   };
