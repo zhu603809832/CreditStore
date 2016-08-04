@@ -2,9 +2,14 @@ var path = require('path');
 
 var config = {
     debug: true,
+    get mini_assets() { return !this.debug; }, // 是否启用静态文件的合并压缩，详见视图中的Loader
     name: 'CreditStore', // 网站的名字
     description: '澳门积分俱乐部', // 网站的描述
     keywords: 'Aomen, Macao, Macau, CreditStore',
+    // 添加到 html head 中的信息
+    site_headers: [
+        '<meta name="菊爆大队队长桶牛" content="895896936@qq.com" />'
+    ],
     site_logo: '/public/images/cnodejs_light.svg', // default is `name`
     site_icon: '/public/images/cnode_icon_32.png', // 默认没有 favicon, 这里填写网址
     // 社区的域名
@@ -31,7 +36,7 @@ var config = {
     cooke_max_age: 1000 * 60 * 60 * 24 * 30,
 
     admins: { user_login_name: true },
-    
+
     //重置密码有效期
     reset_password_expire_time: 1000 * 60 * 60 * 24,
 };

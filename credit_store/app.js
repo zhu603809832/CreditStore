@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var Loader = require('loader');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -11,6 +12,7 @@ require('./models');
 var auth = require('./middlewares/auth');
 var errorPageMiddleware = require('./middlewares/error_page');
 var webRouter = require('./web_router');
+var _ = require('lodash');
 
 //instance
 var app = express();
@@ -27,6 +29,32 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.locals._layoutFile = 'layout.html';
+
+var assets = {};
+
+if (config.mini_assets) {
+  try {
+    assets = require('./assets.json');
+  } catch (e) {
+    logger.error('You must execute `make build` before start app when mini_assets is true.');
+    throw e;
+  }
+}
+
+_.extend(app.locals, {
+  config: config,
+  Loader: Loader,
+  assets: assets
+});
+
+/*_.extend(app.locals, require('./lib/render_helper'));
+app.use(function (req, res, next) {
+  res.locals.csrf = req.csrfToken ? req.csrfToken() : '';
+  next();
+});*/
+
 /*
 //session-memroy
 //var settings = require('./database/settings');
