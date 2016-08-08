@@ -39,6 +39,7 @@ var config = {
 
     //重置密码有效期
     reset_password_expire_time: 1000 * 60 * 60 * 24,
+    site_static_host: '', // 静态文件存储域名
 };
 
 if (process.env.NODE_ENV === 'test') {

@@ -31,6 +31,7 @@ app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.locals._layoutFile = 'layout.html';
+app.enable('trust proxy');
 
 var assets = {};
 
