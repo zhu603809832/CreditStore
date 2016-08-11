@@ -14,6 +14,8 @@ var config = {
     site_icon: '/public/images/cnode_icon_32.png', // 默认没有 favicon, 这里填写网址
     // 社区的域名
     host: '127.0.0.1',
+    hostname: null,
+
     port: 18080,
     // 邮箱配置
     mail_opts: {
@@ -41,6 +43,9 @@ var config = {
     reset_password_expire_time: 1000 * 60 * 60 * 24,
     site_static_host: '', // 静态文件存储域名
 };
+
+var urlinfo = require('url').parse(config.host);
+config.hostname = urlinfo.hostname || config.host;
 
 if (process.env.NODE_ENV === 'test') {
     config.db = 'mongodb://127.0.0.1/credit_store_test';
