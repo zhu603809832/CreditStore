@@ -12,10 +12,7 @@ module.exports = function (req, res, next) {
 
   res.on('finish', function () {
     var duration = ((new Date()) - t);
-    console.log("test string colors".red);
-    console.log("test string colors".green);
-    console.log("test string colors".blue);
-    logger.info('Completed', res.statusCode, ('(' + duration + 'ms)').green);
+    logger.info('Completed', res.statusCode, ('(' + duration.toString() + 'ms)').green);
   });
 
   next();
