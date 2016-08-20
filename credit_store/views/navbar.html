@@ -1,102 +1,77 @@
-<div id='sidebar'>
-
-	<div class='panel'>
-		<% if (typeof(user) !== 'undefined' || typeof(current_user) !== "undefined"){ %>
-		<div class='header'>
-			<span class='col_fade'>个人信息</span>
-		</div>
-		<div class='inner'>
-			已经登录了！
-		</div>
-		<% } else { %>
-		<div class='inner'>
-			<p><%= config.description %></p>
-			还没有登录！
-			<div>
-				您可以
-				<a href='/login'>登录</a>
-				或
-				<a href='/register'>注册</a>
-			</div>
-		</div>
-		<% } %>
-	</div>
-
-	<% if (typeof(current_user) !== "undefined") { %>
-	<div class="panel">
-		<div class='inner'>
-			<a href='/topic/create' id='create_topic_btn'>
-				<span class='span-success'>发布话题</span>
-			</a>
-		</div>
-	</div>
-	<% } %>
-</div>
-
-
 <div class="row clearfix" id='navbar'>
-	<div class="col-md-12 column">
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">从澳门到珠海</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							<a href="login">登录</a>
-						</li>
-						<li>
-							<a href="register">注册</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">微信美团<strong class="caret"></strong></a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="#">扫一扫</a>
-										</li>
-										<li>
-											<a href="#">微信公众平台</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-								<ul class="nav navbar-nav navbar-right">
-									<li>
-										<a href="register">我的消费记录</a>
-										</li>
-										<li>
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown">我的信息<strong class="caret"></strong></a>
-													<ul class="dropdown-menu">
-														<li>
-															<a href="#">账号详情</a>
-															</li>
-															<li>
-																<a href="#">我的消费记录</a>
-																</li>
-																<li>
-																	<a href="#">我的积分</a>
-																	</li>
-																</ul>
-															</li>
-														</li>
-														<li class="dropdown">
-															<a href="#" class="dropdown-toggle" data-toggle="dropdown">更多帮助<strong class="caret"></strong></a>
-																<ul class="dropdown-menu">
-																	<li>
-																		<a href="#">联系客服</a>
-																		</li>
-																		<li>
-																			<a href="#">常见问题</a>
-																			</li>
-																			<li role="separator" class="divider"></li>
-																			<li>
-																				<a href="#">加入我们</a>
-																				</li>
-																			</ul>
-																		</li>
-																	</ul>
-																</div>
-															</nav>
-														</div>
-													</div>
+    <div class="col-md-12 column">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">从澳门到珠海</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <% if (typeof(user) === 'undefined' && !current_user){ %>
+                        <li class="active">
+                            <a href="login">登录</a>
+                        </li>
+                        <li>
+                            <a href="register">注册</a>
+                        </li>
+                        <% } else { %>
+                            <li>
+                                <a class="navbar-brand" href="/info"><%= current_user.loginname%></a>
+                            </li>
+                            <li>
+                                <a class="navbar-brand" href="/logout" data-method="post" rel="nofollow">退出</a>
+                            </li>
+                            <% } %>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">手机微信<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">扫一扫</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">微信公众平台</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (typeof(user) !== 'undefined' || current_user) { %>
+                        <li>
+                            <a href="#">我的消费记录</a>
+                        </li>
+                        <li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的信息<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="info">账号详情</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">我的消费记录</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">我的积分</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </li>
+                        <% } %>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">更多帮助<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">联系客服</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">常见问题</a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        <a href="#">加入我们</a>
+                                    </li>
+                                </ul>
+                            </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

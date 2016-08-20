@@ -9,7 +9,7 @@ var proxy = require('../proxy')
 var User = proxy.User;
 
 exports.showRegisterPage = function(req, res, next) {
-    res.render('register', { title: 'website register' });
+    res.render('register', { });
 };
 
 exports.register = function(req, res, next) {
@@ -23,7 +23,7 @@ exports.register = function(req, res, next) {
     ep.on('prop_err', function(msg) {
         res.status(422);
         //res.render('register',{}) //客户端用angularjs，就不用render了。
-        res.send({ code: 0, msg: msg, email: email, account: loginname, title: 'website register' });
+        res.send({ code: 0, msg: msg, email: email, account: loginname });
     })
 
     //验证信息的正确性
@@ -81,7 +81,6 @@ exports.register = function(req, res, next) {
 };
 
 exports.activeAccount = function(req, res, next) {
-    console.log("test!!!activeAccount")
     var key = validator.trim(req.query.key);
     var name = validator.trim(req.query.name);
     User.getUserByLoginName(name, function(err, user) {

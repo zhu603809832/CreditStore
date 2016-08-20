@@ -1,6 +1,5 @@
 exports.showUsersPage = function(req, res, next){
     res.render('users', { title: 'website users' });
-    console.log("showUserPage")
 };
 
 exports.users = function(req, res, next){

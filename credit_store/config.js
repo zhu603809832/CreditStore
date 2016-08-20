@@ -46,7 +46,7 @@ var config = {
 
 var urlinfo = require('url').parse(config.host);
 config.hostname = urlinfo.hostname || config.host;
-
+console.log(urlinfo.hostname);
 if (process.env.NODE_ENV === 'test') {
     config.db = 'mongodb://127.0.0.1/credit_store_test';
 }

@@ -1,12 +1,14 @@
 var config = require('../config');
 
 exports.showLogoutPage = function(req, res, next) {
-    res.render('logout', { title: 'website logout' });
-    console.log("showLogoutPage")
+    res.render('logout', {});
 };
 
 exports.logout = function(req, res, next) {
+	console.log("quit!!!!");
     req.session.destroy();
     res.clearCookie(config.auth_cookie_name, { path: '/' });
-    res.redirect('/');
+    setTimeout(function(req, res, next){
+    	res.redirect('/');
+    }, 3000);
 };

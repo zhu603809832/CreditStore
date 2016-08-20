@@ -17,6 +17,7 @@ var compress = require('compression');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
+var errorhandler = require('errorhandler');
 var requestLog = require('./middlewares/request_log');
 var renderMiddleware = require('./middlewares/render');
 var logger = require('./lib/log');
@@ -42,7 +43,7 @@ app.engine('html', require("ejs").__express); // or   app.engine("html",require(
 app.set('view engine', 'html');
 app.enable('trust proxy');
 
-app.use(requestLog);
+//app.use(requestLog);
 
 if (config.debug) {
   // 渲染时间
@@ -53,7 +54,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/agent', proxyMiddleware.proxy);
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.enable('trust proxy');
 
 /*
 //session-memroy
@@ -79,7 +79,7 @@ app.use(session({
         db: db})
 }))
 */
-
+app.use(require('response-time')());
 app.use(helmet.frameguard('sameorigin'));
 app.use(bodyParser.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }));
@@ -98,7 +98,7 @@ app.use(session({
 }));
 
 // custom middleware
-//app.use(auth.authUser);
+app.use(auth.authUser);
 app.use(auth.blockUser());
 
 //http://www.sxt.cn/info-2562-u-324.html
@@ -123,14 +123,23 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// error handlers
-app.use(errorPageMiddleware.errorPage);
 _.extend(app.locals, {
   config: config,
   Loader: Loader,
   assets: assets
 });
 
+// error handlers
+app.use(errorPageMiddleware.errorPage);
+_.extend(app.locals, require('./lib/render_helper'));
+app.use(function (req, res, next) {
+  res.locals.csrf = req.csrfToken ? req.csrfToken() : '';
+  next();
+});
+
+if (config.debug) {
+  app.use(errorhandler());
+};
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -154,5 +163,14 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+if (!module.parent) {
+  app.listen(config.port, function () {
+    logger.info(config.name + ' listening on port ', config.port);
+    logger.info('God bless love....');
+    logger.info('You can debug your app with http://' + config.hostname + ':' + config.port);
+    logger.info('');
+  });
+}
 
 module.exports = app;

@@ -7,7 +7,7 @@ var authMiddleWare = require('../middlewares/auth');
 
 exports.showLoginPage = function(req, res, next) {
     req.session._loginReferer = req.headers.referer;
-    res.render('login', { title: 'website login' });
+    res.render('login', { });
 };
 
 exports.login = function(req, res, next) {
@@ -18,7 +18,7 @@ exports.login = function(req, res, next) {
 
     if (!loginname || !password) {
         res.status(422);
-        res.render('login', {error: '信息不完整。', title: 'website login' });
+        res.render('login', {error: '信息不完整。'});
         return;
     }
     
@@ -31,15 +31,19 @@ exports.login = function(req, res, next) {
 
     ep.on('login_error', function(login_error) {
         res.status(403);
-        res.render('login', { error: '用户名或密码错误', title: 'website login' });
+        res.render('login', { error: '用户名或密码错误'});
     });
-    
+
+    ep.on('login_error_user_not_exist', function(login_error) {
+        res.status(403);
+        res.render('login', { error: '用户不存在'});
+    });
     getUser(loginname, function(err, user) {
         if (err) {
             return next(err);
         }
         if (!user) {
-            return ep.emit('login_error');
+            return ep.emit('login_error_user_not_exist');
         }
         var passhash = user.password;
         tools.bcompare(password, passhash, ep.done(function(bool) {

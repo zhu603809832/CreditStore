@@ -1,6 +1,5 @@
 exports.showInfoPage = function(req, res, next){
     res.render('info', { title: 'website info' });
-    console.log("showInfoPage")
 };
 
 exports.info = function(req, res, next){

@@ -62,12 +62,8 @@ exports.gen_session = gen_session;
 exports.authUser = function (req, res, next) {
   var ep = new eventproxy();
   ep.fail(next);
-  console.log("authUser");
-  console.log("cookies:",req.cookies);
-  console.log("req.session.user:",req.session.user);
   // Ensure current_user always has defined.
   res.locals.current_user = null;
-
   if (config.debug && req.cookies['mock_user']) {
     var mockUser = JSON.parse(req.cookies['mock_user']);
     req.session.user = new UserModel(mockUser);
@@ -86,7 +82,7 @@ exports.authUser = function (req, res, next) {
     if (config.admins.hasOwnProperty(user.loginname)) {
       user.is_admin = true;
     }
-
+    next();
   });
 
   if (req.session.user) {
