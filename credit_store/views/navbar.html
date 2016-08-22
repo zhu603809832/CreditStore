@@ -15,10 +15,14 @@
                         </li>
                         <% } else { %>
                             <li>
-                                <a class="navbar-brand" href="/info"><%= current_user.loginname%></a>
+                                <a class="navbar-brand" href="/info">
+                                    <%= current_user.loginname%>
+                                </a>
                             </li>
                             <li>
-                                <a class="navbar-brand" href="/logout" data-method="post" rel="nofollow">退出</a>
+                                <form id='search_form' class='navbar-search' action="/search">
+                                    <a class="navbar-brand" href="/logout" method="post" data-method="post" rel="nofollow">退出</a>
+                                </form>
                             </li>
                             <% } %>
                                 <li class="dropdown">
