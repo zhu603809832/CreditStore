@@ -1,7 +1,8 @@
 var app = angular.module('RegisterApp', ['ngAnimate', 'ui.bootstrap']);
 app.controller('RegisterCtrl', function($scope, $http) {
     $scope.register = {};
-    $scope.register_ret_tip = "";
+    $scope.register_ret_failed_tip = "";
+    $scope.register_ret_success_tip = "";
     $scope.on_register = function() {
         var checkvalidate = $scope.on_check_not_validate();
         if (checkvalidate) {
@@ -24,14 +25,17 @@ app.controller('RegisterCtrl', function($scope, $http) {
             var code = data.code;
             var msg = data.msg;
             if (code == 1) {
-                $scope.register_ret_tip = data.msg;
+                $scope.register_ret_success_tip = data.msg;
+                $scope.register_ret_failed_tip = "";
+                return
             }
         });
 
         promise.error(function(data, status, headers, config) {
             var code = data.code;
             if (code == 0) {
-                $scope.register_ret_tip = data.msg;
+                $scope.register_ret_failed_tip = data.msg;
+                $scope.register_ret_success_tip = "";
                 return
             }
         });

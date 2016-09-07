@@ -65,8 +65,9 @@
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default" ng-disabled="registerform.registermail.$invalid || registerform.registername.$invalid || registerform.registerpassword.$invalid || registerform.registerconfirmpassword.$invalid || on_check_not_validate()">注册</button>
-                            <p style="color:red" ng-show="true">
-                                <span ng-show="true">{{register_ret_tip}}</span>
+                            <p ng-show="true">
+                                <span style="color:red" ng-show="true">{{register_ret_failed_tip}}</span>
+                                <span style="color:green" ng-show="true">{{register_ret_success_tip}}</span>
                             </p>
                         </div>
                     </div>
