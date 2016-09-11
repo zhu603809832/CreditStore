@@ -17,9 +17,9 @@
                     <div class="col-sm-3 col-md-2 sidebar">
                         <ul class="nav nav-sidebar">
                             <h4 class="sub-header">我的账户</h4>
-            <li><a href="#">我的信息</a></li>
-            <li><a href="#">账户设置</a></li>
-            <li><a href="#">安全中心</a></li>
+            <li><a href="/info/personinfo">我的信息</a></li>
+            <li><a href="/info/accountsettings">账户设置</a></li>
+            <li><a href="/info/securitycenter">安全中心</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <h4 class="sub-header">我的订单</h4>
@@ -33,29 +33,25 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-left: 0px;">
-          <h1 class="page-header" style="margin-bottom: 20px;margin-top: 20px;">晚上好，zhu603809832</h1>
+          <h1 class="page-header" style="margin-bottom: 20px;margin-top: 20px;"><%= current_user.tip_hello%><%= current_user.name%></h1>
           <div class="row placeholders">
                     <div class="col-xs-6 col-sm-3 placeholder">
                         <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:60px"></span>
-                        <!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"> -->
                         <h4>身份铭牌</h4>
                             <span class="text-muted">彰显你的身份</span>
                     </div>
                     <div class="col-xs-6 col-sm-3 placeholder">
                         <span class="glyphicon glyphicon-gift" aria-hidden="true" style="font-size:60px"></span>
-                        <!-- <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail"> -->
                         <h4>优惠多多</h4>
                         <span class="text-muted">不定期推送多种优惠</span>
                     </div>
                     <div class="col-xs-6 col-sm-3 placeholder">
                         <span class="glyphicon glyphicon-ice-lolly" aria-hidden="true" style="font-size:60px"></span>
-                        <!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail"> -->
                         <h4>美食多多</h4>
                         <span class="text-muted">不定期推送多种美食</span>
                     </div>
                     <div class="col-xs-6 col-sm-3 placeholder">
                         <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true" style="font-size:60px"></span>
-                        <!-- <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail"> -->
                         <h4>积分兑换</h4>
                         <span class="text-muted">屯起的积分当钱花</span>
                     </div>
@@ -67,88 +63,27 @@
                             <tr>
                                 <th>时间</th>
                                 <th>详情</th>
-                                <th>成长值</th>
+                                <th>消费金额</th>
+                                <th>获得成长值</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>2015-09-28 22:02</td>
                                 <td>购买 - 甜心魔方甜品2选1</td>
+                                <th>59元</th>
                                 <td>+8</td>
                             </tr>
                             <tr>
                                 <td>2015-09-28 22:02</td>
                                 <td>购买 - 甜心魔方甜品2选1</td>
+                                <th>59元</th>
                                 <td>+8</td>
                             </tr>
                             <tr>
                                 <td>2015-09-28 22:02</td>
                                 <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
-                                <td>+8</td>
-                            </tr>
-                            <tr>
-                                <td>2015-09-28 22:02</td>
-                                <td>购买 - 甜心魔方甜品2选1</td>
+                                <th>59元</th>
                                 <td>+8</td>
                             </tr>
                         </tbody>

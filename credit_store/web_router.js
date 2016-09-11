@@ -31,6 +31,10 @@ router.get('/password_reset', password.resetPasssword);//密码重置页面，�
 router.post('/password_reset', password.updatePassword);//密码重置逻辑
 
 router.get('/info', info.showInfoPage);
+router.get('/info/personinfo', info.showPersonInfo);
+router.get('/info/accountsettings', info.accountSettings);
+router.get('/info/securitycenter', info.securityCenter);
+
 router.post('/info', info.info);
 
 router.get('/template', template.showTemplatePage);
