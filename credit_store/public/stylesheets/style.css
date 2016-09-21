@@ -453,3 +453,21 @@ li {
     margin-bottom: 20px;
     margin-right: 0px;
 }
+
+.avatar-container {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    float: left;
+}
+
+.avatar-content {
+    text-align: center;
+}
+
+.J-upload-avatar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

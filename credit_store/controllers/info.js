@@ -8,6 +8,11 @@ exports.showInfoPage = function(req, res, next){
     res.render('info', {});
 };
 
+exports.showBaseInfo = function(req, res, next){
+	res.locals.info_key = "baseinfo";
+	res.render('info', {});
+}
+
 exports.showPersonInfo = function(req, res, next){
     res.locals.info_key = "personinfo";
     res.render('info', {});
