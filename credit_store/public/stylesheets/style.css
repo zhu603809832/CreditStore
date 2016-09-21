@@ -446,3 +446,10 @@ li {
 .caption {
     height: 300px;
 }
+
+.info-panel {
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 0px;
+}
