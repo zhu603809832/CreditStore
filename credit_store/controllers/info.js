@@ -23,8 +23,8 @@ exports.accountSettings = function(req, res, next){
     res.render('info', {});
 }
 
-exports.securityCenter = function(req, res, next){
-    res.locals.info_key = "securitycenter";
+exports.myCrediteInfo = function(req, res, next){
+    res.locals.info_key = "mycrediteinfo";
     res.render('info', {});
 }
 

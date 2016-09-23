@@ -471,3 +471,35 @@ li {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.userexinfo-form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.userexinfo-form__section {
+    margin: 10px;
+}
+
+.page-header {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.pic_list {
+    display: block;
+    white-space: nowrap;
+    width: 500px;
+    overflow: auto;
+}
+
+.pic_list li {
+    margin: 10px;
+    display: inline-block;
+}
+
+.accountsettings-form {
+    margin-left: 50px;
+}

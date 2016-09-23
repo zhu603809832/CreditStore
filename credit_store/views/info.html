@@ -21,7 +21,7 @@
             <li><a href="/info/baseinfo">基本信息</a></li>
             <li><a href="/info/personinfo">个人资料</a></li>
             <li><a href="/info/accountsettings">账户设置</a></li>
-            <li><a href="/info/securitycenter">安全中心</a></li>
+            <li><a href="/info/mycredit">我的积分</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <h4 class="sub-header">我的订单</h4>
@@ -274,12 +274,80 @@
         </div>
             </div>
         <% } else if (info_key === "accountsettings"){ %>
-            <p>accountsettings</p>
-        <% } else if (info_key === "securitycenter"){ %>
-            <p>securitycenter</p>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main info-panel" id="info-main-panel">
+                <div class="info-content cf">
+                    <div class="row placeholders" >
+                        <ul class="pic_list cf">
+                            <li><a href="#">登录密码</a></li>                            
+                            <li><a href="#">手机号</a></li>
+                            <li><a href="#">邮箱</a></li>
+                            <li><a href="#">支付密码</a></li>
+                            <li><a href="#">安全问题</a></li>
+                        </ul>
+                        <hr/>
+                    </div>
+                    <div class="row placeholders">
+                        <form class="accountsettings-form" id="J-userexinfo-form" method="post" action="#"><span style="display:none"><input type="hidden" name="csrf"></span>
+                        <p>提升密码安全程度到强，可以获得成长值。</p>
+                        <p>为了保护账号安全，在余额支付时使用支付密码，现在设置可以赚取成长值。</p>
+                        <p>安全问题是验证您身份的工具之一，现在设置赚取成长值。</p>
+                    </form>
+                    </div>
+                    
+                </div>
+            </div>
+        <% } else if (info_key === "mycrediteinfo"){ %>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main info-panel" id="info-main-panel">
+          <h1 class="page-header">当前积分：999999999</h1>
+          <div class="row placeholders">
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <span class="glyphicon glyphicon-repeat" aria-hidden="true" style="font-size:60px"></span>
+                        <h4>勤俭节约</h4>
+                            <span class="text-muted">资源重复利用</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true" style="font-size:60px"></span>
+                        <h4>积分兑换</h4>
+                        <span class="text-muted">屯起的积分当钱花</span>
+                    </div>
+                </div>
+                <h2 class="sub-header">积分获得记录</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>详情</th>
+                                <th>消费金额</th>
+                                <th>获得积分</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2015-09-28 22:02</td>
+                                <td>购买 - 甜心魔方甜品2选1</td>
+                                <th>59元</th>
+                                <td>+8</td>
+                            </tr>
+                            <tr>
+                                <td>2015-09-28 22:02</td>
+                                <td>购买 - 甜心魔方甜品2选1</td>
+                                <th>59元</th>
+                                <td>+8</td>
+                            </tr>
+                            <tr>
+                                <td>2015-09-28 22:02</td>
+                                <td>购买 - 甜心魔方甜品2选1</td>
+                                <th>59元</th>
+                                <td>+8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    </div>
         <% } else { %>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main info-panel" id="info-main-panel">
-          <h1 class="page-header" style="margin-bottom: 20px;margin-top: 20px;"><%= current_user.tip_hello%><%= current_user.name%></h1>
+          <h1 class="page-header"><%= current_user.tip_hello%><%= current_user.name%></h1>
           <div class="row placeholders">
                     <div class="col-xs-6 col-sm-3 placeholder">
                         <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:60px"></span>
@@ -310,7 +378,7 @@
                                 <th>时间</th>
                                 <th>详情</th>
                                 <th>消费金额</th>
-                                <th>获得成长值</th>
+                                <th>获得经验</th>
                             </tr>
                         </thead>
                         <tbody>
