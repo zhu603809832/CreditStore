@@ -34,7 +34,13 @@ router.get('/info', info.showInfoPage);//个人信息
 router.get('/info/baseinfo', info.showBaseInfo);//基本信息
 router.get('/info/personinfo', info.showPersonInfo);//个人资料
 router.get('/info/accountsettings', info.accountSettings);//账号设置
+router.get('/info/accountsettings/loginpassword', info.loginPassword);//账号设置——登录密码
+router.get('/info/accountsettings/phonenumber', info.phoneNumber);//账号设置——电话号码
+router.get('/info/accountsettings/paypassword', info.payPassword);//账号设置——支付密码
+router.get('/info/accountsettings/securityquestion', info.securityQuestion);//账号设置——安全问题
 router.get('/info/mycredit', info.myCrediteInfo);//我的积分
+router.get('/info/moneyconsume', info.myMoneyConsumeRecord);//金额消费
+router.get('/info/creditconsume', info.myCreditConsumeRecord);//积分消费
 
 router.post('/info', info.info);
 

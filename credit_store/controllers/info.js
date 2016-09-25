@@ -20,11 +20,46 @@ exports.showPersonInfo = function(req, res, next){
 
 exports.accountSettings = function(req, res, next){
     res.locals.info_key = "accountsettings";
+    res.locals.detail_key = "default";
+    res.render('info', {});
+}
+
+exports.loginPassword = function(req, res, next){
+    res.locals.info_key = "accountsettings";
+    res.locals.detail_key = "loginpassword";
+    res.render('info', {});
+}
+
+exports.phoneNumber = function(req, res, next){
+    res.locals.info_key = "accountsettings";
+    res.locals.detail_key = "phonenumber";
+    res.render('info', {});
+}
+
+exports.payPassword = function(req, res, next){
+    res.locals.info_key = "accountsettings";
+    res.locals.detail_key = "paypassword";
+    res.render('info', {});
+}
+
+exports.securityQuestion = function(req, res, next){
+    res.locals.info_key = "accountsettings";
+    res.locals.detail_key = "securityquestion";
     res.render('info', {});
 }
 
 exports.myCrediteInfo = function(req, res, next){
     res.locals.info_key = "mycrediteinfo";
+    res.render('info', {});
+}
+
+exports.myMoneyConsumeRecord = function(req, res, next){
+    res.locals.info_key = "monneyconsumerecord";
+    res.render('info', {});    
+}
+
+exports.myCreditConsumeRecord = function(req, res, next){
+    res.locals.info_key = "creditconsumerecord";
     res.render('info', {});
 }
 

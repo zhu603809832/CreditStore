@@ -503,3 +503,8 @@ li {
 .accountsettings-form {
     margin-left: 50px;
 }
+
+.accset-control {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
