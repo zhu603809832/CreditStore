@@ -13,6 +13,7 @@ var UserSchema = new Schema({
     location: { type: String },
     signature: { type: String },
     profile: { type: String },
+    phone: { type: String },
     weibo: { type: String },
     wechat: { type: String },
     avatar: { type: String },

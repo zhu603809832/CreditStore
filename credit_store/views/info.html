@@ -40,13 +40,13 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">邮箱：</label>
                         <div class="col-sm-10">
-                            <p class="form-control-static">895896936@qq.com</p>
+                            <p class="form-control-static"><%= email%></p>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword" class="col-sm-2 control-label">用户名：</label>
                         <div class="col-sm-10">
-                            <p class="form-control-static">895896936</p>
+                            <p class="form-control-static"><%= username%></p>
                         </div>
                     </div>
                     <div class="form-group">
@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <label for="inputPassword" class="col-sm-2 control-label">手机号：</label>
                         <div class="col-sm-10">
-                            <p class="form-control-static">18319157139</p>
+                            <p class="form-control-static"><%= phone%></p>
                         </div>
                     </div>
                 </div>
@@ -333,7 +333,7 @@
             </div>
         <% } else if (info_key === "mycrediteinfo"){ %>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main info-panel" id="info-main-panel">
-          <h1 class="page-header">当前积分：999999999</h1>
+          <h1 class="page-header">当前积分：<%=credit%></h1>
           <div class="row placeholders">
                     <div class="col-xs-6 col-sm-3 placeholder">
                         <span class="glyphicon glyphicon-repeat" aria-hidden="true" style="font-size:60px"></span>

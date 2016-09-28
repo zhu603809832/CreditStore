@@ -10,7 +10,11 @@ exports.showInfoPage = function(req, res, next){
 
 exports.showBaseInfo = function(req, res, next){
 	res.locals.info_key = "baseinfo";
-	res.render('info', {});
+    console.log(res.locals.current_user);
+    var username = res.locals.current_user.name;
+    var email = res.locals.current_user.email;
+    var phone = res.locals.current_user.phone || "unknown";
+	res.render('info', {username : username, email : email, phone : phone});
 }
 
 exports.showPersonInfo = function(req, res, next){
@@ -50,7 +54,8 @@ exports.securityQuestion = function(req, res, next){
 
 exports.myCrediteInfo = function(req, res, next){
     res.locals.info_key = "mycrediteinfo";
-    res.render('info', {});
+    var credit = res.locals.current_user.score;
+    res.render('info', {credit: credit});
 }
 
 exports.myMoneyConsumeRecord = function(req, res, next){
