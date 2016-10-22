@@ -1,0 +1,16 @@
+--2016-10-22	23:03
+/bin/www.js 应用程序启动入口
+/controllers 路由逻辑入口，例如首页，个人信息，登录，注销等
+/data	数据库配置文件，已废弃
+/database 封装mogondb的数据库操作，已废弃
+/lib 基本库，自己实现
+/lgos 产生的log文件
+/middlewares 部分中间件，可以介入外部登录，例如github或者微信
+/models mongodb的封装使用，数据库连接
+/node_modules nodejs依赖库
+/proxy 代理接口，封装数据库查询操作，对外使用
+/public	客户端网页相关，第三方库或者资源
+/test 测试模块
+/views	浏览器浏览的页面，express解析
+/web_router.js 路由统一接入
+app.js 应用程序设置

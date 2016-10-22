@@ -164,13 +164,23 @@ app.use(function(err, req, res, next) {
     });
 });
 
-if (!module.parent) {
-  app.listen(config.port, function () {
+app.Init = function(){
+  console.log("application Init...");
+};
+
+app.Run = function(first_argument) {
+  console.log("application Run...");
+  this.listen(config.port, function () {
     logger.info(config.name + ' listening on port ', config.port);
     logger.info('God bless love....');
     logger.info('You can debug your app with http://' + config.hostname + ':' + config.port);
     logger.info('');
   });
+};
+
+if (!module.parent) {
+  app.Init();
+  app.Run();
 }
 
 module.exports = app;
